@@ -49,64 +49,259 @@ additional_links:
 # about_title: About Me
 about_profile_image: images/profile.jpg
 about_content: |
-  I am most skilled in: <mark>AWS</mark> and <mark>Eating Pizza</mark>
+  Experienced DevOps and Cloud Engineer professional with strong appetite for automation and security, with a focus on leveraging the cloud's capabilities such as high availability and scalability. Capable of defining multi-cloud security architectural direction and guiding principles to align with the organization's strategy and long term vision. Dynamic, results-oriented individual with a strong track record of performance providing technical, strategic and operational leadership in uniquely challenging situations. Offering 9+ years of experience in uniquely complex environments ranging from Linux servers setup to solutioning and architecting multi-tier cloud infrastructure.
+  
+  I am most skilled in: <mark>AWS</mark>, <mark>Cloud Security and Best Practices</mark> and <mark>riding bikes</mark>
 
 content:
   - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: top-middle
-        title: Super awesome project
-        link: github.com/varunchandak
+        title: Google Cloud Foundation Landing Zone
+        link: https://github.com/cldcvr/gcifi-lz
         # link_text: Project Website
-        additional_links:
-          - title:  sproogen/modern-resume-theme
-            icon: fab fa-github
-            url: github.com/sproogen/modern-resume-theme
+#        additional_links:
+#          - title:  sproogen/modern-resume-theme
+#            icon: fab fa-github
+#            url: github.com/sproogen/modern-resume-theme
           # - title:  Github page for project (eg. sproogen/modern-resume-theme)
           #   icon: fab fa-github
           #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
-        quote: >
-          This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
+#        quote: >
+#          This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
         description: | # this will include new lines to allow paragraphs
-          I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
+          - Provides a series of reference templates for <mark>Terraform</mark> stages and environments which reflect Google Cloud's best practices
+          - Templates are used to quickly build a repeatable enterprise-ready foundation in Google Cloud
+          - Enables users to focus on deploying the applications on this pre-configured secure environment
+
+      - layout: top-middle
+        title: Video Rendering Farm
+#        link: https://github.com/cldcvr/gcifi-lz
+        # link_text: Project Website
+#        additional_links:
+#          - title:  sproogen/modern-resume-theme
+#            icon: fab fa-github
+#            url: github.com/sproogen/modern-resume-theme
+          # - title:  Github page for project (eg. sproogen/modern-resume-theme)
+          #   icon: fab fa-github
+          #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
+#        quote: >
+#          This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
+        description: | # this will include new lines to allow paragraphs
+          - Leveraged elastic compute power of AWS by launching a fleet of <b>50+ c4.8xlarge EC2 instances</b>
+          - Used proprietary software with in-depth integration with Linux
+          - Using shared storage for rendering output
+          - Tools: <mark>Thinkbox Deadline</mark>, <mark>Aspera</mark>, <mark>Maya</mark>
+          - Technologies: <mark>Shell Scripting</mark>, <mark>AWS</mark>
+
+      - layout: top-middle
+        title: Streaming Service on AWS
+        link: https://github.com/HOOQTV
+        description: | # this will include new lines to allow paragraphs
+          This is for Asia’s leading video streaming service
+            - Multiple monolithic services containerized on AWS
+            - Terraform was used extensively for entire AWS infrastructure
+            - <mark>Jenkins</mark> is used to create <mark>docker</mark> images and deploy on registry.
+            - Automated deployments using Slack and Jenkins integration.
+            - Periodic cost optimizations and resizing activity with minimal downtime.
+            - Periodic security audits to fix and mitigate any security loopholes.
+            - Periodic OS patching to fix and mitigate any vulnerabilities.
+            - Monitoring APIs and services via NewRelic and RunScope
+            - <b>Tools: Jenkins, Slack, RunScope, NewRelic</b>
+            - <b>Technologies: Shell Scripting, Python, AWS, NodeJS.</b>
+
+      - layout: top-middle
+        title: Migration from On Premises to Google Cloud
+        link: https://www.indiainfoline.com
+        description: | # this will include new lines to allow paragraphs
+          - This is for an Indian diversified financial services company headquartered in Mumbai.
+          - The goal was to migrate core infrastructure and multiple websites from on-premise DC to Google Cloud.
+          - Migrated core infrastructure and multiple websites from on-premise data-centers to Google Cloud, which included services such as Apache, MySQL, Solr
+          - Successfully set up <mark>Windows Server Failover Clustering</mark> as a part of migration
+          - Periodic cost optimizations and resizing activity with minimal downtime.
+          - Periodic security audits to fix and mitigate any security loopholes.
+          - Periodic OS patching to fix and mitigate any vulnerabilities.
+          - <b>Tools: Ansible, Shell Scripting</b>
+          - <b>Technologies: Google Cloud</b>
+
+      - layout: top-middle
+        title: In-house Projects and Automation
+#        link: https://www.indiainfoline.com
+        description: | # this will include new lines to allow paragraphs
+          - Successfully integrated Google Workspace with in-house tools such as AWS, Azure AD, Slack, Jira, Confluence for automatic access control and auto-provisioning of IAM users
+          - Leveraging Cloud Identity and Google Workspace, various applications that follow zero-trust principle and SAML 2.0 protocols have been set up so that access control is tied to the individual.
+          - Taken initiative to drive automatic access to internal tooling when a user is onboarded in the identity provider.
+          - Taken ownership to ensure org wide security best practices for tooling and public clouds.
+
+      - layout: top-middle
+        title: Active participation in compliance and audits
+#        link: https://www.indiainfoline.com
+        description: | # this will include new lines to allow paragraphs
+          - Taken initiative to ensure the organization is compliant in various audits taken place, such as ISO 27001, SOC2 and HITRUST
+          - Taken part in maintaining risk register and developing policies and processes by coordinating with HR and IT Teams
+
+      - layout: top-middle
+        title: Installation of ConnectXF
+        link: https://skyconnect.mithi.com/
+        description: | # this will include new lines to allow paragraphs
+          - Setup multiple Linux machines and install Mithi’s product (ConnectXF) on client machines as well as in-house mail servers
+          - Ensured the Linux machines are hardened and secured using industry best practices
 
   - title: Experience # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        title: Lorem Ipsum Company
+        title: CloudCover
         link: cldcvr.com
         # link_text: boringcompany.com
-        sub_title: Lorem Ipsum Administrator
-        caption: Feb 2016 - Present
-        quote: >
-          Lorem Ipsum
+        sub_title: Lead DevSecOps Engineer
+        caption: Aug 2021 - Present
         description: | # this will include new lines to allow paragraphs
-            Lorem Ipsum
+            - Responsible for detection and remediation of cloud security risks and gaps in a centralized fashion across AWS, GCP and Azure
+            - Managing a team of 6 person, defining the KRA/KPI and providing guidance and career growth of the team members, resulting in 30% promotion
+            - Leading a cross-cultured team of 5 person to implement policies and procedures across organizations' auditing and compliance assessments
+            - Responsible for SaaS migrations and best practices by coordinating with multiple business partners and stakeholders across different time zones
+            - Implement new technologies for cloud platforms, software configuration and deployment, and security.
+            - Designed and built reliable, scalable and high performing enterprise systems
+            - Discovering restrictions in the infrastructure and software environment that reduce the effectiveness of the process.
+            - Develop a roadmap for the modernisation of the architecture for customers along with planning and implementation.
+            - Understand the requirements for CI/CD to design a comprehensive solution for clients, Product Managers, IT team, Operations team and other business requirement owners.
+            - Explore and implement new technologies for cloud platforms, software configuration and deployment, and security.
+            - Find innovative ways to speed up or synchronize processes, making them more seamless, and automating them for eternity.
+            - Experience in the development of a roadmap for the evolution of the architecture for customers, planning, and integration of legacy environments into a transformed environment.
+
+      - layout: left
+        title: CloudCover
+        link: cldcvr.com
+        # link_text: boringcompany.com
+        sub_title: Senior DevOps Engineer
+        caption: Feb 2018 - Aug 2021
+        description: | # this will include new lines to allow paragraphs
+            - Developed extreme automation on AWS/GCP/Azure, not limited to security.
+            - Automations focussed heavily on different cloud environments using respective CLI/SDK/API.
+            - Responsible for designing and implementing extremely scalable, resilient and high performing cloud infrastructure.
+            - Understand the requirements for CI/CD to design a complete solution for clients and corresponding stakeholders.
+            - Collaborate with different teams and other contributors to ensure compliance and risk management.
+            - Implementing security best practices on AWS and GCP, adhering to the shared responsibility model of public clouds, along with auditing and security assessments.
+            - Designed and architect solutions for clients to solve business problems in a cloud environment.
+            - Architecting solutions on cloud and implementing secure, automated, scalable and highly available infrastructure as a hybrid cloud implementation.
+            - Creating parameterized infrastructure as code for clients for easier deployment and scaling of infrastructure resulting in the redeployment of any environment with rapid turnaround time using Terraform or CloudFormation
+            - Hands-on experience on on-premises to cloud migration.
+            - Implementing and managing monitoring, logging and alerting solutions using AWS CloudWatch, Stackdriver, and Elastic Stack to resolve issues swiftly and create RCA for the same.
+            - Implementing self healing environments by leveraging native cloud services such as CloudWatch Alarms, autoscaling groups and custom scripts.
+            - Performing Auditing and Security Assessments, not limited to AWS or GCP.
+            - Design and architect solutions for clients to solve business problems in a cloud environment.
+            - Performing various proof of concepts scenarios for distinct client requirements.
+            - Performing high level cost optimization activities on cloud to reduce expenditure by substantial difference.
+            - Migrating from on-premises/private cloud to AWS/GCP cloud, coordinating with various teams to ensure minimal to zero downtime.
+            - Creation of project documentation, presentations, blogs.
+            - Interactive Messaging and ChatOps using Slack.
+
+      - layout: left
+        title: CloudCover
+        link: cldcvr.com
+        # link_text: boringcompany.com
+        sub_title: DevOps Engineer
+        caption: Feb 2017 - Feb 2018
+        description: | # this will include new lines to allow paragraphs
+            - Application Monitoring using tools such as Nagios, NewRelic, RunScope.
+            - Assisting customers on migrating their application from premises to cloud with unique solutions.
+            - Automated deployments using CI/CD tools such as Jenkins.
+            - Coordinating with different teams on multiple clouds and automation projects.
+            - Cost Optimization using various open source tools.
+            - Create reusable IaC using Terraform and CloudFormation.
+            - Deploy, monitor and secure cloud infrastructure in multiple environments.
+            - Managing AWS and GCP resources such as RDS, EC2.
+            - Responsible for designing and implementing noteworthy solutions as per client's requirements.
+            - Source code management using Github
+            - Strong analytical and problem-solving skills.
+            - Write bash scripts to automate repetitive day to day tasks, reducing manual effort.
+
+      - layout: left
+        title: CloudCover
+        link: cldcvr.com
+        # link_text: boringcompany.com
+        sub_title: SysOps Engineer
+        caption: Feb 2016 - Feb 2017
+        description: | # this will include new lines to allow paragraphs
+            - Handling multiple instances, volumes and snapshots within a single AWS Console.
+            - Hands on experience on different monitoring tools such as PRTG, Nagios.
+            - Interact effectively with members of the various technical teams within the organization.
+            - Monitoring, Managing and Troubleshooting the Network Infrastructure.
+            - Servers migration from on-premises to Amazon Web Services (AWS).
+            - Use AWS CLI and shell scripts to automate repetitive tasks.
+            - Working with AWS CLI and shell scripts to automate repetitive tasks, thereby reducing manual effort
+            - Working with customers on implementing and resolving cloud solutions and issues.
+
+      - layout: left
+        title: Mithi Software Technologies Pvt. Ltd.
+        link: https://www.mithi.com/
+        # link_text: boringcompany.com
+        sub_title: Systems Engineer
+        caption: Apr 2014 - Jan 2016
+        description: | # this will include new lines to allow paragraphs
+            - Addressing the performance bottleneck and ensuring maximum network and Server uptime.
+            - Building and delivering stable, serviceable solutions in an independent fashion in regards with the company's requirements.
+            - Employing new technologies to solve difficult problems and issues using a given set of skills.
+            - Handling multiple instances, volumes and snapshots within a single AWS Console.
+            - Hands on experience on different monitoring tools such as PRTG, Nagios.
+            - Interact effectively with members of the various technical teams within the organization.
+            - Managing capacity of storage and NAS, such as FreeNAS, NexentaStor and related activities such as Disk Mirroring, scheduling jobs, etc.
+            - Servers migration from hardware to cloud on Amazon Web Services (AWS).
+            - Servers migration from on-premises to AWS.
+            - Setup ConnectXF (Mithi Skyconnect) on Linux platform.
+
+      - layout: left
+        title: Mithi Software Technologies Pvt. Ltd.
+        link: https://www.mithi.com/
+        # link_text: boringcompany.com
+        sub_title: Linux Support Engineer
+        caption: May 2013 - May 2014
+        description: | # this will include new lines to allow paragraphs
+            - Configuring servers for Mithi Hosted Email services and Addressing the performance bottleneck and ensuring maximum Network and Server uptime.
+            - Delivering Monthly Technical Face-to-Face Training Sessions for clients In-Premise.
+            - Monitoring, Managing and Troubleshooting the Network Infrastructure.
+            - Preparing the remote client-site in a typical Distributed Multi-Server Email system.
+            - Remote Installation, Deployment, Reconfiguration of product ConnectXF (Mithi Skyconnect) on Linux platform, configuring, monitoring and testing of Email Servers for a spectrum of clients.
+
+  - title: Certifications # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - layout: left
+#        title: Lorem Ipsum
+#        caption: 2007 - 2011
+#        sub_title: Lorem Ipsum
+        description: | # this will include new lines to allow paragraphs
+          - AWS Certified Solutions Architect - Associate
+          - AWS Certified Developer - Associate
+          - AWS Certified SysOps Administrator - Associate
+          - AWS Certified Solutions Architect - Professional
+          - AWS Certified DevOps Engineer - Professional
+          - AWS Certified Security - Specialty
+          - AWS Certified Advanced Networking - Specialty
+          - Google Certified Associate Cloud Engineer
+          - Microsoft Security, Compliance, and Identity Fundamentals (SC-900)
 
   - title: Education # Title for the section
     layout: list # Type of content section (list/text)
     content:
-      - layout: left
-        title: Lorem Ipsum
+      - layout: top-middle
+        title: Poornima Institute of Engineering and Technology, Jaipur, Rajasthan, India
         caption: 2007 - 2011
-        sub_title: Lorem Ipsum
-        quote: >
-          Lorem Ipsum
-        description: | # this will include new lines to allow paragraphs
-          Lorem Ipsum
+        sub_title: B. Tech. in Information Technology
+#        quote: >
+#          Lorem Ipsum
+#        description: | # this will include new lines to allow paragraphs
+#          Lorem Ipsum
 
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
-      Alongside my interests in networks and software engineering some of my other interests and hobbies are:
-      - Rock climbing
+      Alongside my interests in technology and cloud engineering some of my other interests and hobbies are:
+      - Long Rides
       - Gaming
-      - Knitting
-      
-      Look at this cool image  
-      ![Trees](/modern-resume-theme/images/landscape-trees.jpg "Trees")
+      - working out
 
 # Footer
 footer_show_references: true
