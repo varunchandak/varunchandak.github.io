@@ -57,7 +57,7 @@ content:
   - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
     content:
-      - layout: left
+      - layout: top-middle
         title: Google Cloud Foundation Landing Zone
         link: https://github.com/cldcvr/gcifi-lz
         # link_text: Project Website
@@ -75,7 +75,7 @@ content:
           - Templates are used to quickly build a repeatable enterprise-ready foundation in Google Cloud
           - Enables users to focus on deploying the applications on this pre-configured secure environment
 
-      - layout: left
+      - layout: top-middle
         title: Video Rendering Farm
 #        link: https://github.com/cldcvr/gcifi-lz
         # link_text: Project Website
@@ -95,7 +95,7 @@ content:
           - <b>Tools: Thinkbox Deadline, Aspera, Maya</b>
           - <b>Technologies: Shell Scripting, AWS<b>
 
-      - layout: left
+      - layout: top-middle
         title: Streaming Service on AWS
         link: https://github.com/HOOQTV
         description: | # this will include new lines to allow paragraphs
@@ -111,7 +111,7 @@ content:
             - <b>Tools: Jenkins, Slack, RunScope, NewRelic</b>
             - <b>Technologies: Shell Scripting, Python, AWS, NodeJS.</b>
 
-      - layout: left
+      - layout: top-middle
         title: Migration from On Premises to Google Cloud
         link: https://www.indiainfoline.com
         description: | # this will include new lines to allow paragraphs
@@ -125,7 +125,7 @@ content:
           - <b>Tools: Ansible, Shell Scripting</b>
           - <b>Technologies: Google Cloud</b>
 
-      - layout: left
+      - layout: top-middle
         title: In-house Projects and Automation
 #        link: https://www.indiainfoline.com
         description: | # this will include new lines to allow paragraphs
@@ -134,14 +134,14 @@ content:
           - Taken initiative to drive automatic access to internal tooling when a user is onboarded in the identity provider.
           - Taken ownership to ensure org wide security best practices for tooling and public clouds.
 
-      - layout: left
+      - layout: top-middle
         title: Active participation in compliance and audits
 #        link: https://www.indiainfoline.com
         description: | # this will include new lines to allow paragraphs
           - Taken initiative to ensure the organization is compliant in various audits taken place, such as ISO 27001, SOC2 and HITRUST
           - Taken part in maintaining risk register and developing policies and processes by coordinating with HR and IT Teams
 
-      - layout: left
+      - layout: top-middle
         title: Installation of ConnectXF
         link: https://skyconnect.mithi.com/
         description: | # this will include new lines to allow paragraphs
