@@ -266,7 +266,7 @@ content:
             - Remote Installation, Deployment, Reconfiguration of product ConnectXF (Mithi Skyconnect) on Linux platform, configuring, monitoring and testing of Email Servers for a spectrum of clients.
 
   - title: Certifications # Title for the section
-    layout: left # Type of content section (list/text)
+    layout: list # Type of content section (list/text)
     content:
       - layout: left
 #        title: Lorem Ipsum
