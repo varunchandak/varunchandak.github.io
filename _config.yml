@@ -7,10 +7,10 @@ version: 2
 
 # Personal info
 name: Varun Chandak
-title: Cloud Security
+title: DevOps and Cloud Security Professional
 email: contact@vrnchndk.in
 #website: www.github.com/sproogen/resume-theme
-website: www.vrnchndk.in
+website: https://www.vrnchndk.in
 
 # Dark Mode (true/false/never)
 darkmode: false
@@ -51,13 +51,13 @@ about_profile_image: images/profile.jpeg
 about_content: |
   Experienced DevOps and Cloud Engineer professional with strong appetite for automation and security, with a focus on leveraging the cloud's capabilities such as high availability and scalability. Capable of defining multi-cloud security architectural direction and guiding principles to align with the organization's strategy and long term vision. Dynamic, results-oriented individual with a strong track record of performance providing technical, strategic and operational leadership in uniquely challenging situations. Offering 9+ years of experience in uniquely complex environments ranging from Linux servers setup to solutioning and architecting multi-tier cloud infrastructure.
   
-  I am most skilled in: <mark>AWS</mark>, <mark>Cloud Security and Best Practices</mark> and <mark>riding bikes</mark>
+  I am most skilled in: <mark>AWS</mark> and <mark>Cloud Security</mark> and <mark>goofing around</mark>.
 
 content:
   - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
     content:
-      - layout: top-middle
+      - layout: left
         title: Google Cloud Foundation Landing Zone
         link: https://github.com/cldcvr/gcifi-lz
         # link_text: Project Website
@@ -75,7 +75,7 @@ content:
           - Templates are used to quickly build a repeatable enterprise-ready foundation in Google Cloud
           - Enables users to focus on deploying the applications on this pre-configured secure environment
 
-      - layout: top-middle
+      - layout: left
         title: Video Rendering Farm
 #        link: https://github.com/cldcvr/gcifi-lz
         # link_text: Project Website
@@ -92,14 +92,14 @@ content:
           - Leveraged elastic compute power of AWS by launching a fleet of <b>50+ c4.8xlarge EC2 instances</b>
           - Used proprietary software with in-depth integration with Linux
           - Using shared storage for rendering output
-          - Tools: <mark>Thinkbox Deadline</mark>, <mark>Aspera</mark>, <mark>Maya</mark>
-          - Technologies: <mark>Shell Scripting</mark>, <mark>AWS</mark>
+          - <b>Tools: Thinkbox Deadline, Aspera, Maya</b>
+          - <b>Technologies: Shell Scripting, AWS<b>
 
-      - layout: top-middle
+      - layout: left
         title: Streaming Service on AWS
         link: https://github.com/HOOQTV
         description: | # this will include new lines to allow paragraphs
-          This is for Asia’s leading video streaming service
+            - This is for Asia’s leading video streaming service
             - Multiple monolithic services containerized on AWS
             - Terraform was used extensively for entire AWS infrastructure
             - <mark>Jenkins</mark> is used to create <mark>docker</mark> images and deploy on registry.
@@ -111,7 +111,7 @@ content:
             - <b>Tools: Jenkins, Slack, RunScope, NewRelic</b>
             - <b>Technologies: Shell Scripting, Python, AWS, NodeJS.</b>
 
-      - layout: top-middle
+      - layout: left
         title: Migration from On Premises to Google Cloud
         link: https://www.indiainfoline.com
         description: | # this will include new lines to allow paragraphs
@@ -125,7 +125,7 @@ content:
           - <b>Tools: Ansible, Shell Scripting</b>
           - <b>Technologies: Google Cloud</b>
 
-      - layout: top-middle
+      - layout: left
         title: In-house Projects and Automation
 #        link: https://www.indiainfoline.com
         description: | # this will include new lines to allow paragraphs
@@ -134,14 +134,14 @@ content:
           - Taken initiative to drive automatic access to internal tooling when a user is onboarded in the identity provider.
           - Taken ownership to ensure org wide security best practices for tooling and public clouds.
 
-      - layout: top-middle
+      - layout: left
         title: Active participation in compliance and audits
 #        link: https://www.indiainfoline.com
         description: | # this will include new lines to allow paragraphs
           - Taken initiative to ensure the organization is compliant in various audits taken place, such as ISO 27001, SOC2 and HITRUST
           - Taken part in maintaining risk register and developing policies and processes by coordinating with HR and IT Teams
 
-      - layout: top-middle
+      - layout: left
         title: Installation of ConnectXF
         link: https://skyconnect.mithi.com/
         description: | # this will include new lines to allow paragraphs
@@ -266,7 +266,7 @@ content:
             - Remote Installation, Deployment, Reconfiguration of product ConnectXF (Mithi Skyconnect) on Linux platform, configuring, monitoring and testing of Email Servers for a spectrum of clients.
 
   - title: Certifications # Title for the section
-    layout: list # Type of content section (list/text)
+    layout: left # Type of content section (list/text)
     content:
       - layout: left
 #        title: Lorem Ipsum
@@ -287,9 +287,9 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: top-middle
-        title: Poornima Institute of Engineering and Technology, Jaipur, Rajasthan, India
+        title: B. Tech. in Information Technology
         caption: 2007 - 2011
-        sub_title: B. Tech. in Information Technology
+        sub_title: Poornima Institute of Engineering and Technology, Jaipur, Rajasthan, India
 #        quote: >
 #          Lorem Ipsum
 #        description: | # this will include new lines to allow paragraphs
@@ -299,9 +299,12 @@ content:
     layout: text
     content: | # this will include new lines to allow paragraphs
       Alongside my interests in technology and cloud engineering some of my other interests and hobbies are:
-      - Long Rides
-      - Gaming
-      - working out
+      - 🏍️
+      - 🎮
+      - 🏋🏼
+      - 🏓
+      - ♠️♥️♣️♦️🃏
+      - I sometimes write articles on my blog
 
 # Footer
 footer_show_references: true
