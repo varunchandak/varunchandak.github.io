@@ -281,6 +281,8 @@ content:
           - AWS Certified Security - Specialty
           - AWS Certified Advanced Networking - Specialty
           - Google Certified Associate Cloud Engineer
+          - Google Certified Professional Cloud Security Engineer
+          - Google Certified Professional Google Workspace Administrator
           - Microsoft Security, Compliance, and Identity Fundamentals (SC-900)
 
   - title: Education # Title for the section
@@ -299,12 +301,12 @@ content:
     layout: text
     content: | # this will include new lines to allow paragraphs
       Alongside my interests in technology and cloud engineering some of my other interests and hobbies are:
-      - 🏍️
-      - 🎮
-      - 🏋🏼
-      - 🏓
-      - ♠️♥️♣️♦️🃏
-      - I sometimes write articles on my blog
+      - Bike Rides
+      - Gaming
+      - Working out
+      - Table Tennis
+      - Board Games and Cards
+      - occasional blogging
 
 # Footer
 footer_show_references: true
