@@ -54,6 +54,63 @@ about_content: |
   I am most skilled in: <mark>AWS</mark> and <mark>Cloud Security</mark> and <mark>goofing around</mark>.
 
 content:
+  - title: Skills
+    - layout: left
+      description: |
+        - Amazon Web Services (AWS)
+          - IAM, SSO
+          - EC2, ALB, VPC
+          - API Gateway, Lambda
+          - ECS, ECR
+          - S3, Glacier
+          - Route53
+          - RDS, DynamoDB, OpenSearch, Athena
+          - Config, Security Hub, GuardDuty, WAF
+          - CloudFront
+          - CloudFormation
+          - KMS
+          - CloudWatch
+          - CloudTrail, Organizations, Control Tower
+          - Backup
+          - CodeCommit, CodeBuild, CodeDeploy, CodePipeline
+          - SES, SNS
+          - Cost Explorer, Budgets
+        - Google Compute Platform (GCP):
+          - Cloud Armor
+          - Cloud CDN
+          - Cloud DNS
+          - Load Balancing
+          - Cloud Network
+          - VPC
+          - Stackdriver
+          - Cloud Functions
+          - App Engine
+          - Compute Engine
+          - IAM
+          - Security Command Center
+          - Cloud SQL
+        - Microsoft Azure
+          - Azure Sentinel
+          - Azure Active Directory
+          - Defender for Cloud
+          - Defender for Cloud Apps
+          - Defender for Endpoints
+          - Log Analytics Workspace
+        - Technical:
+          - Shell Scripting
+          - Terraform
+          - GitHub and GitHub Actions
+          - Jenkins
+          - Google Workspace (GSuite) Management and Security
+          - JIRA
+          - Confluence
+          - Slack
+          - Linux, Windows, macOS
+          - JAMF MDM Solution
+          - Cloud Custodian
+          - SOC 2
+          - ISO 27001
+
   - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
     content:
