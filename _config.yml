@@ -39,7 +39,7 @@ additional_links:
   icon: fas fa-blog
   url: https://blog.vrnchndk.in
 - title: Sudoku Solver
-  icon: fas fa-puzzle
+  icon: fas fa-pen
   url: https://sudoku.vrnchndk.in
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
