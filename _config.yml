@@ -36,10 +36,10 @@ additional_links:
   icon: fas fa-globe
   url: https://www.vrnchndk.in
 - title: My Blog
-  icon: fa-solid fa-blog
-  url: https://sudoku.vrnchndk.in
+  icon: fas fa-blog
+  url: https://blog.vrnchndk.in
 - title: Sudoku Solver
-  icon: fa-solid fa-puzzle
+  icon: fas fa-puzzle
   url: https://sudoku.vrnchndk.in
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
