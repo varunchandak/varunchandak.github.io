@@ -32,9 +32,15 @@ youtube_username: vrnchndk
 
 # Additional icon links
 additional_links:
-- title: vrnchndk.in
+- title: My Resume
   icon: fas fa-globe
   url: https://www.vrnchndk.in
+- title: My Blog
+  icon: fa-solid fa-blog
+  url: https://sudoku.vrnchndk.in
+- title: Sudoku Solver
+  icon: fa-solid fa-puzzle
+  url: https://sudoku.vrnchndk.in
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
 #   url: Link url (eg. https://google.com)
