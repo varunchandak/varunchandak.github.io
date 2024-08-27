@@ -42,7 +42,7 @@ additional_links:
   icon: fas fa-puzzle-piece
   url: https://sudoku.vrnchndk.in
 - title: Mileage Calculator
-  icon: fas gas-pump
+  icon: fas fa-gas-pump
   url: https://mileage.vrnchndk.in
 # - title: another link
 #   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
