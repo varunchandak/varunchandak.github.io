@@ -222,7 +222,18 @@ ul.icons li a i {
   background: transparent;
   box-shadow: none;
   color: inherit;
-  font-size: 1rem;
+  font-size: 2rem;
+}
+
+/* Match icon size to large social circles in the header layout */
+.header-right ul.icons li a i,
+.header-right ul.icons li a svg,
+.top-header ul.icons li a i,
+.top-header ul.icons li a svg {
+  font-size: 2.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  line-height: 1;
 }
 
 @media (max-width: 768px) {
