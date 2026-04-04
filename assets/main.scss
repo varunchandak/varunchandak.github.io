@@ -173,6 +173,58 @@ li {
   color: #5a738b;
 }
 
+/* Readability and layout fixes */
+.container p,
+.container li,
+.layout .details p,
+.layout .details li,
+.layout .details summary,
+.layout .details a,
+.layout .details .link {
+  color: var(--text-body) !important;
+}
+
+.container li::marker {
+  color: #2d678d;
+}
+
+.layout .details summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+ul.icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0 0 1rem;
+  list-style: none;
+}
+
+ul.icons li a {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(31, 92, 116, 0.28);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 6px 18px rgba(16, 63, 95, 0.16);
+  color: #1f5c74;
+}
+
+ul.icons li a i {
+  width: auto;
+  height: auto;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
 @media (max-width: 768px) {
   .header-contianer {
     padding-top: 1.2rem;
