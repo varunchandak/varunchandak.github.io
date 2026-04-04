@@ -262,7 +262,7 @@ content:
         title: Sudoku Solver
         description: |
           - Interactive Sudoku solver utility.
-          - https://sudoku.vrnchndk.in
+          - Link: [https://sudoku.vrnchndk.in](https://sudoku.vrnchndk.in)
 
       - layout: left
         title: Mileage Calculator
