@@ -262,25 +262,25 @@ content:
         title: Sudoku Solver
         description:
           - Interactive Sudoku solver utility.
-          - [https://sudoku.vrnchndk.in](https://sudoku.vrnchndk.in)
+          - https://sudoku.vrnchndk.in
 
       - layout: left
         title: Mileage Calculator
         description:
           - Quick calculator for trip and fuel efficiency tracking.
-          - [https://mileage.vrnchndk.in](https://mileage.vrnchndk.in)
+          - https://mileage.vrnchndk.in
 
       - layout: left
         title: Housie Caller
         description:
           - Number-calling utility for Housie/Tambola sessions.
-          - [https://housie.vrnchndk.in](https://housie.vrnchndk.in)
+          - https://housie.vrnchndk.in
 
       - layout: left
         title: Housie Prize Splitter
         description:
           - Utility to split Housie/Tambola prizes across winners and slabs.
-          - [https://housie-calculator.vrnchndk.in](https://housie-calculator.vrnchndk.in)
+          - https://housie-calculator.vrnchndk.in
 
   - title: Certifications
     layout: list
