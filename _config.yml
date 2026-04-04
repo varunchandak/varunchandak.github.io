@@ -255,41 +255,55 @@ content:
           - Set up multiple Linux machines and installed Mithi ConnectXF on client machines and in-house mail servers.
           - Ensured the Linux machines were hardened and secured using industry best practices.
 
-
-
-
   - title: Mini Projects
     layout: list
     content:
       - layout: left
         title: Sudoku Solver
-        sub_title: Interactive Sudoku solver utility.
-        link: https://sudoku.vrnchndk.in
+        description:
+          - Interactive Sudoku solver utility.
+          - Link: [https://sudoku.vrnchndk.in](https://sudoku.vrnchndk.in)
 
       - layout: left
         title: Mileage Calculator
-        sub_title: Quick calculator for trip and fuel efficiency tracking.
-        link: https://mileage.vrnchndk.in
+        description:
+          - Quick calculator for trip and fuel efficiency tracking.
+          - Link: [https://mileage.vrnchndk.in](https://mileage.vrnchndk.in)
 
       - layout: left
         title: Housie Caller
-        sub_title: Number-calling utility for Housie/Tambola sessions.
-        link: https://housie.vrnchndk.in
+        description:
+          - Number-calling utility for Housie/Tambola sessions.
+          - Link: [https://housie.vrnchndk.in](https://housie.vrnchndk.in)
 
       - layout: left
         title: Housie Prize Splitter
-        sub_title: Utility to split Housie/Tambola prizes across winners and slabs.
-        link: https://housie-calculator.vrnchndk.in
+        description:
+          - Utility to split Housie/Tambola prizes across winners and slabs.
+          - Link: [https://housie-calculator.vrnchndk.in](https://housie-calculator.vrnchndk.in)
 
   - title: Certifications
     layout: list
     content:
       - layout: left
+        title: AWS
         description: |
-          - <mark>AWS</mark>: Security Specialty, DevOps Engineer Professional, SysOps Administrator Associate, Developer Associate, Advanced Networking Specialty, Solutions Architect Professional, Solutions Architect Associate
-          - <mark>Google Cloud</mark>: Associate Cloud Engineer, Professional Cloud Security Engineer, Professional Google Workspace Administrator
-          - <mark>Microsoft</mark>: Security, Compliance, and Identity Fundamentals (SC-900)
-          - <mark>HashiCorp</mark>: Terraform Associate (002)
+          - Security Specialty, DevOps Engineer Professional, SysOps Administrator Associate, Developer Associate, Advanced Networking Specialty, Solutions Architect Professional, Solutions Architect Associate
+
+      - layout: left
+        title: Google Cloud
+        description:
+          - Associate Cloud Engineer, Professional Cloud Security Engineer, Professional Google Workspace Administrator
+
+      - layout: left
+        title: Microsoft
+        description:
+          - Security, Compliance, and Identity Fundamentals (SC-900)
+
+      - layout: left
+        title: HashiCorp
+        description:
+          - Terraform Associate (002)
 
   - title: Education
     layout: list
