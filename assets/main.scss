@@ -2,7 +2,6 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 @import "modern-resume-theme";
 
 :root {
@@ -17,7 +16,7 @@
 }
 
 body {
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--text-body);
   background: var(--page-bg);
   line-height: 1.7;
@@ -27,7 +26,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--text-strong);
   letter-spacing: -0.02em;
 }
@@ -100,6 +99,12 @@ ul.icons a i {
 .header-right a:hover,
 ul.icons a:hover {
   color: #0f5672;
+}
+
+a:focus-visible {
+  outline: 3px solid #237ed5;
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
 .layout {
@@ -176,5 +181,16 @@ li {
   .layout .details {
     padding: 1rem;
     border-radius: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
