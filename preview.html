@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Varun Chandak - Resume Preview</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --page-bg: linear-gradient(180deg, #edf6ff 0%, #f8fafc 45%, #ffffff 100%);
+        --surface: #ffffff;
+        --text-strong: #12263a;
+        --text-body: #294661;
+        --accent: #0d8e7d;
+        --accent-soft: #d9f5f0;
+        --border: #d9e6f2;
+        --shadow: 0 16px 45px rgba(17, 63, 99, 0.09);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", "Segoe UI", sans-serif;
+        color: var(--text-body);
+        background: var(--page-bg);
+        line-height: 1.7;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px 40px;
+      }
+
+      header {
+        background: radial-gradient(circle at 15% 10%, #e2f6ff 0%, #c8ebff 35%, #b9f4eb 100%);
+        border-bottom: 1px solid #9ad4cb;
+        box-shadow: inset 0 -30px 70px rgba(255, 255, 255, 0.35);
+        padding: 44px 0 28px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        color: var(--text-strong);
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.3rem);
+      }
+
+      .subtitle {
+        margin-top: 4px;
+        color: #1f5c74;
+        font-weight: 700;
+      }
+
+      .meta {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .pill {
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(37, 121, 153, 0.2);
+        border-radius: 999px;
+        padding: 4px 10px;
+        color: #173957;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+
+      main {
+        margin-top: 22px;
+      }
+
+      section {
+        margin-top: 18px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        padding: 18px;
+        position: relative;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 5px;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+        background: linear-gradient(180deg, #27a488, #2f7fe3);
+      }
+
+      .section-title {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      ul {
+        margin: 8px 0 0;
+        padding-left: 18px;
+      }
+
+      li {
+        margin-bottom: 6px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .role-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 6px;
+      }
+
+      .role {
+        margin-top: 18px;
+      }
+
+      .role:first-of-type {
+        margin-top: 0;
+      }
+
+      .muted {
+        color: #5a738b;
+      }
+
+      .mini-projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 10px;
+      }
+
+      .mini-project {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 60px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, #ffffff, #f4fbff);
+        text-decoration: none;
+        color: #173957;
+        box-shadow: 0 10px 24px rgba(17, 63, 99, 0.07);
+      }
+
+      .mini-project-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #18a38c, #237ed5);
+        color: #ffffff;
+        font-size: 1rem;
+        flex: 0 0 38px;
+      }
+
+      .mini-project-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.3;
+      }
+
+      .mini-project-text strong {
+        color: var(--text-strong);
+      }
+
+      .mini-project-text span {
+        color: #5a738b;
+        font-size: 0.88rem;
+      }
+
+      mark {
+        background: #ffefae;
+        color: #553d00;
+        border-radius: 6px;
+        padding: 0 0.3rem;
+      }
+
+      footer {
+        margin-top: 26px;
+        border-top: 1px solid var(--border);
+        padding-top: 14px;
+        color: #5a738b;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 860px) {
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+
+        .stack-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .mini-projects {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>Varun Chandak</h1>
+        <p class="subtitle">Security Engineer | Cloud Security and DevSecOps</p>
+        <div class="meta">
+          <span class="pill">📍 Pune, India</span>
+          <a class="pill" href="mailto:contact.varunchandak@gmail.com">contact.varunchandak@gmail.com</a>
+          <a class="pill" href="https://resume.vrnchndk.in">📄 Resume</a>
+          <a class="pill" href="https://linkedin.com/in/vrnchndk/">💼 LinkedIn</a>
+          <a class="pill" href="https://github.com/varunchandak">🐙 GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="card">
+        <h2 class="section-title">About</h2>
+        <p>
+          Multi-cloud infrastructure and security professional with 10+ years of experience building and securing large-scale AWS, GCP, and Azure environments.
+        </p>
+        <p>
+          My focus is secure-by-default platform engineering: policy-driven governance, resilient cloud architectures, automation-first DevSecOps, and practical threat mitigation that does not slow delivery.
+        </p>
+        <p>
+          Most skilled in <mark>AWS</mark>, <mark>Cloud Security</mark>, <mark>DevSecOps Automation</mark>, and <mark>Identity Governance</mark>.
+        </p>
+      </section>
+
+      <section class="grid-2">
+        <article class="card">
+          <h2 class="section-title">Core Skills</h2>
+          <ul>
+            <li>Cloud Platforms: AWS, GCP, Azure</li>
+            <li>Cloud Security: Cloud Custodian, Security Hub, AWS Config, SCC, Sentinel, Defender for Cloud, DivvyCloud, CloudView, Rapid7, Elastic Stack</li>
+            <li>Endpoint and MDM: CrowdStrike Falcon, CyberArk EPM, Jamf, Kandji, Intune</li>
+            <li>DevOps and IaC: Terraform, CloudFormation, GitHub Actions, Jenkins, GitLab, Docker</li>
+            <li>Identity and SaaS: Okta, IAM Identity Center, Azure AD, SAML, CyberArk, Google Workspace, Microsoft 365</li>
+            <li>Programming and Automation: Python, Bash</li>
+            <li>Leadership and Delivery: Strategic planning, team leadership, stakeholder management, project execution</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">Certifications</h2>
+          <ul>
+            <li>AWS Security Specialty</li>
+            <li>AWS DevOps Engineer Professional</li>
+            <li>AWS Advanced Networking Specialty</li>
+            <li>AWS Solutions Architect Professional and Associate</li>
+            <li>Google Cloud ACE and Professional Cloud Security Engineer</li>
+            <li>SC-900 and HashiCorp Terraform Associate</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="stack-grid">
+        <article class="card">
+          <h2 class="section-title">AWS and Cloud Stack</h2>
+          <ul>
+            <li>AWS: IAM, IAM Identity Center, Organizations, Control Tower</li>
+            <li>Compute and Network: EC2, ALB, VPC, Route53, CloudFront</li>
+            <li>App and Containers: API Gateway, Lambda, ECS, ECR</li>
+            <li>Data: RDS, DynamoDB, OpenSearch, Athena, S3, Glacier</li>
+            <li>Security and Ops: Security Hub, GuardDuty, WAF, KMS, Config, CloudTrail, CloudWatch, Backup, Budgets</li>
+            <li>Legacy stack from earlier projects: CodeCommit, CodeBuild, CodeDeploy, CodePipeline, SES, SNS</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">GCP, Azure, and Tooling</h2>
+          <ul>
+            <li>GCP: Cloud Armor, CDN, DNS, Cloud Network, Load Balancing, VPC, Cloud Functions, App Engine, Compute Engine, IAM, SCC, Cloud SQL, Stackdriver</li>
+            <li>Azure: Azure AD, Sentinel, Defender for Cloud, Defender for Cloud Apps, Defender for Endpoint, Log Analytics Workspace</li>
+            <li>Tooling: GitHub, GitHub Actions, Jenkins, GitLab, Terraform, Linux, macOS, Windows, JIRA, Confluence, Slack, Jamf</li>
+            <li>Workspace and Compliance: Google Workspace administration, SOC 2, ISO 27001</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="role">
+          <div class="role-head">
+            <strong>TripleLift - Security Engineer</strong>
+            <span class="muted">Jun 2024 - Present</span>
+          </div>
+          <ul>
+            <li>Continuously matured the security program by deploying and tuning SIEM, EDR, and cloud monitoring controls for near real-time detection and response.</li>
+            <li>Hardened cloud infrastructure against CIS benchmark controls and drove closure of high-impact gaps across services.</li>
+            <li>Built and maintained internal security automation using GitHub Actions, Python, and Bash across cloud, identity, endpoint, and developer tooling.</li>
+            <li>Automated AWS security compliance scorecards and recurring reporting to Google Sheets and Slack, saving 3 to 4 hours weekly.</li>
+            <li>Implemented identity-driven access governance by reconciling Okta with access platforms and approval gates for high-impact actions.</li>
+            <li>Generated recurring User Access Review and permissions inventory reports for AWS and GitHub administrators.</li>
+            <li>Integrated security alert workflows into ticketing and monitoring pipelines to improve ownership and tracking.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <strong>Ollion (formerly CloudCover) - Lead DevSecOps Engineer</strong>
+            <span class="muted">Aug 2021 - May 2024</span>
+          </div>
+          <ul>
+            <li>Directed cloud security risk mitigation across AWS, GCP, and Azure, reducing vulnerabilities by 30% through posture management and automated patching.</li>
+            <li>Led and mentored a 6-member DevSecOps team with KRAs and growth planning, contributing to a 40% promotion rate.</li>
+            <li>Standardized audit and compliance procedures to support SOC 2 and ISO 27001 readiness, improving audit outcomes by 25%.</li>
+            <li>Delivered SaaS migrations and cloud modernization roadmaps for enterprise clients across regions and time zones.</li>
+            <li>Designed and implemented secure, resilient cloud infrastructure and governance controls for high-scale environments.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <strong>Ollion (formerly CloudCover) - Senior DevOps Engineer</strong>
+            <span class="muted">Feb 2018 - Aug 2021</span>
+          </div>
+          <ul>
+            <li>Built automation-first cloud infrastructure and operational tooling across AWS, GCP, and Azure.</li>
+            <li>Architected secure, scalable IaC foundations using Terraform and CloudFormation with reusable modules and templates.</li>
+            <li>Designed CI/CD strategies and deployment pipelines with Jenkins and ChatOps integration.</li>
+            <li>Implemented monitoring, logging, and alerting with CloudWatch, Stackdriver, and Elastic Stack to improve MTTR and RCA quality.</li>
+            <li>Executed cost optimization, capacity tuning, and high-availability improvements across multi-account environments.</li>
+            <li>Led on-premises/private-cloud to public-cloud migration initiatives with minimal downtime.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <strong>Ollion (formerly CloudCover) - DevOps Engineer / SysOps Engineer</strong>
+            <span class="muted">Feb 2016 - Feb 2018</span>
+          </div>
+          <ul>
+            <li>Automated deployments with Jenkins and supported production monitoring using Nagios, NewRelic, and RunScope.</li>
+            <li>Built reusable Terraform and CloudFormation stacks for rapid environment provisioning.</li>
+            <li>Managed AWS compute, storage, and networking resources through CLI and shell automation.</li>
+            <li>Supported migration workloads from on-premises infrastructure to AWS and handled customer-impacting incidents.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <strong>Mithi Software - Systems Engineer / Linux Support Engineer</strong>
+            <span class="muted">May 2013 - Jan 2016</span>
+          </div>
+          <ul>
+            <li>Improved network and server uptime through proactive troubleshooting and performance optimization.</li>
+            <li>Supported storage and NAS management, Linux hardening, and operational maintenance.</li>
+            <li>Led migration efforts from hardware/on-premises infrastructure to AWS.</li>
+            <li>Configured and supported Linux-based hosted email infrastructure and distributed client environments.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Selected Projects</h2>
+        <ul>
+          <li>Multi-Cloud Security Governance and Compliance Engine across 12+ AWS accounts.</li>
+          <li>Enterprise Identity Governance and Lifecycle Automation for offboarding and access reviews.</li>
+          <li>Automated Endpoint Security and Fleet Orchestration across CyberArk and MDM platforms.</li>
+          <li>Cloud Logging and SIEM Integration for Google Workspace into Rapid7.</li>
+          <li><a href="https://github.com/cldcvr/gcifi-lz">Google Cloud Foundation Landing Zone</a> with Terraform reference templates for secure enterprise-ready Google Cloud foundations.</li>
+          <li><a href="https://github.com/HOOQTV">Streaming Service on AWS</a> for a major video platform using Terraform, Jenkins, Docker, NewRelic, and RunScope.</li>
+          <li><a href="https://www.indiainfoline.com">Migration from On-Premises to Google Cloud</a> including Apache, MySQL, Solr, and Windows failover clustering.</li>
+          <li>Video Rendering Farm on AWS using 50+ EC2 instances, Thinkbox Deadline, Aspera, and Maya.</li>
+          <li>In-house Projects and Automation covering Google Workspace, AWS, Azure AD, Slack, GitHub, Jira, and Confluence integrations.</li>
+          <li>Active participation in compliance and audits including ISO 27001, SOC 2, and HITRUST.</li>
+          <li><a href="https://skyconnect.mithi.com/">Installation of ConnectXF</a> on hardened Linux mail infrastructure.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Mini Projects</h2>
+        <div class="mini-projects">
+          <a class="mini-project" href="https://sudoku.vrnchndk.in">
+            <span class="mini-project-icon">S</span>
+            <span class="mini-project-text">
+              <strong>Sudoku Solver</strong>
+              <span>Interactive Sudoku solver</span>
+            </span>
+          </a>
+          <a class="mini-project" href="https://mileage.vrnchndk.in">
+            <span class="mini-project-icon">M</span>
+            <span class="mini-project-text">
+              <strong>Mileage Calculator</strong>
+              <span>Trip and fuel efficiency utility</span>
+            </span>
+          </a>
+          <a class="mini-project" href="https://housie.vrnchndk.in">
+            <span class="mini-project-icon">H</span>
+            <span class="mini-project-text">
+              <strong>Housie Caller</strong>
+              <span>Tap-friendly caller utility</span>
+            </span>
+          </a>
+          <a class="mini-project" href="https://housie-calculator.vrnchndk.in">
+            <span class="mini-project-icon">P</span>
+            <span class="mini-project-text">
+              <strong>Housie Prize Splitter</strong>
+              <span>Prize split calculator for games</span>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Education and Beyond Work</h2>
+        <p><strong>Bachelor of Technology (Information Technology)</strong> <span class="muted">2007 - 2011</span></p>
+        <p class="muted">Poornima Institute of Engineering and Technology, Jaipur, Rajasthan</p>
+        <p>Outside work: long bike rides, table tennis, fitness training, board games, and writing technical notes.</p>
+      </section>
+
+      <footer>Preview file generated locally for pre-push review.</footer>
+    </main>
+  </body>
+</html>
