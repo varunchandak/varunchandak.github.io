@@ -18,7 +18,7 @@ linkedin_username: vrnchndk
 
 additional_links:
   - title: Resume
-    icon: fas fa-black-tie
+    icon: fab fa-black-tie
     url: https://resume.vrnchndk.in
   - title: Website
     icon: fas fa-globe
