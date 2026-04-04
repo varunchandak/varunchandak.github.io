@@ -49,13 +49,13 @@ content:
   - title: Core Skills
     layout: text
     content: |
-      - Cloud Platforms: AWS, GCP, Azure
-      - Cloud Security: Cloud Custodian, AWS Security Hub, AWS Config, GCP Security Command Center, Azure Sentinel, Defender for Cloud, DivvyCloud, CloudView, Rapid7, Elastic Stack, AI security governance
-      - Endpoint and MDM: CrowdStrike Falcon, CyberArk EPM, Jamf, Kandji, Microsoft Intune
-      - DevOps and IaC: Terraform, CloudFormation, GitHub Actions, Jenkins, GitLab, Docker
-      - Identity and SaaS: Okta, AWS IAM Identity Center (SSO), Azure AD, SAML, CyberArk, Google Workspace, Microsoft 365
-      - Programming and Automation: Python, Bash
-      - Leadership and Delivery: Strategic planning, team leadership, stakeholder management, project execution, JIRA, Confluence
+      - <mark>Cloud Platforms</mark>: AWS, GCP, Azure
+      - <mark>Cloud Security</mark>: Cloud Custodian, AWS Security Hub, AWS Config, GCP Security Command Center, Azure Sentinel, Defender for Cloud, DivvyCloud, CloudView, Rapid7, Elastic Stack, AI security governance
+      - <mark>Endpoint and MDM</mark>: CrowdStrike Falcon, CyberArk EPM, Jamf, Kandji, Microsoft Intune
+      - <mark>DevOps and IaC</mark>: Terraform, CloudFormation, GitHub Actions, Jenkins, GitLab, Docker
+      - <mark>Identity and SaaS</mark>: Okta, AWS IAM Identity Center (SSO), Azure AD, SAML, CyberArk, Google Workspace, Microsoft 365
+      - <mark>Programming and Automation</mark>: Python, Bash
+      - <mark>Leadership and Delivery</mark>: Strategic planning, team leadership, stakeholder management, project execution, JIRA, Confluence
 
   - title: Detailed Cloud and Platform Stack
     layout: text
