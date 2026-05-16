@@ -26,6 +26,9 @@ additional_links:
   - title: Blog
     icon: fas fa-blog
     url: https://blog.vrnchndk.in
+  - title: Shopping
+    icon: fas fa-shopping-bag
+    url: https://www.vrnchndk.in/shopping
 
 # About Section
 about_profile_image: images/profile.jpeg
