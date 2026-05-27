@@ -4,6 +4,14 @@
 
 @import "modern-resume-theme";
 
+@font-face {
+  font-family: "Outfit";
+  src: url("{{ site.outfit_font_url }}") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --page-bg: linear-gradient(180deg, #edf6ff 0%, #f8fafc 45%, #ffffff 100%);
   --surface: #ffffff;
@@ -16,7 +24,7 @@
 }
 
 body {
-  font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Outfit", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--text-body);
   background: var(--page-bg);
   line-height: 1.7;
@@ -26,7 +34,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Outfit", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--text-strong);
   letter-spacing: -0.02em;
 }

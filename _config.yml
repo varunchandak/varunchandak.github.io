@@ -3,6 +3,7 @@ repository: varunchandak/varunchandak.github.io
 favicon: images/favicon.ico
 description: Security Engineer specializing in cloud security, DevSecOps automation, and identity governance.
 og_image: images/profile.jpeg
+outfit_font_url: https://assets.vrnchndk.in/fonts/Outfit-VariableFont_wght.ttf
 version: 2
 
 # Personal info
