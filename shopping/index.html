@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shopping | Varun Chandak</title>
   <style>
+    @font-face {
+      font-family: "Outfit";
+      src: url("https://assets.vrnchndk.in/fonts/Outfit-VariableFont_wght.ttf") format("truetype");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
+      color-scheme: light;
       --ink: #241b16;
       --muted: #6d5a4d;
       --paper: #f7f1ea;
@@ -14,6 +23,40 @@
       --accent: #9a5b36;
       --accent-deep: #6f3d23;
       --shadow: 0 18px 45px rgba(66, 38, 20, 0.14);
+      --body-background:
+        radial-gradient(circle at top left, rgba(206, 162, 127, 0.45), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(142, 94, 63, 0.2), transparent 28rem),
+        linear-gradient(135deg, #fbf7f2 0%, var(--paper) 100%);
+      --orb-top: rgba(191, 133, 88, 0.18);
+      --orb-bottom: rgba(102, 64, 40, 0.12);
+      --hover-card: rgba(255, 251, 247, 0.96);
+      --hover-line: rgba(111, 61, 35, 0.28);
+      --empty-background: rgba(255, 255, 255, 0.36);
+      --button-background: rgba(154, 91, 54, 0.11);
+      --button-hover-background: rgba(154, 91, 54, 0.18);
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #f7efe7;
+      --muted: #c9b9aa;
+      --paper: #17110e;
+      --card: rgba(39, 29, 24, 0.86);
+      --line: rgba(255, 239, 224, 0.14);
+      --accent: #e0a071;
+      --accent-deep: #f0c19d;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+      --body-background:
+        radial-gradient(circle at top left, rgba(132, 78, 45, 0.34), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(224, 160, 113, 0.13), transparent 28rem),
+        linear-gradient(135deg, #110d0b 0%, var(--paper) 100%);
+      --orb-top: rgba(224, 160, 113, 0.12);
+      --orb-bottom: rgba(255, 239, 224, 0.08);
+      --hover-card: rgba(49, 36, 29, 0.96);
+      --hover-line: rgba(224, 160, 113, 0.32);
+      --empty-background: rgba(255, 255, 255, 0.06);
+      --button-background: rgba(224, 160, 113, 0.13);
+      --button-hover-background: rgba(224, 160, 113, 0.2);
     }
 
     * {
@@ -23,12 +66,46 @@
     body {
       min-height: 100vh;
       margin: 0;
-      background:
-        radial-gradient(circle at top left, rgba(206, 162, 127, 0.45), transparent 34rem),
-        radial-gradient(circle at bottom right, rgba(142, 94, 63, 0.2), transparent 28rem),
-        linear-gradient(135deg, #fbf7f2 0%, var(--paper) 100%);
+      background: var(--body-background);
       color: var(--ink);
-      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: 2.4rem;
+      padding: 0.55rem 0.8rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      box-shadow: 0 12px 30px rgba(66, 38, 20, 0.12);
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      transform: translateY(-1px);
+      border-color: var(--hover-line);
+      background: var(--hover-card);
+    }
+
+    .theme-toggle-icon {
+      font-size: 1rem;
+      line-height: 1;
     }
 
     .background-orb {
@@ -43,7 +120,7 @@
       right: -6rem;
       width: 22rem;
       height: 22rem;
-      background: rgba(191, 133, 88, 0.18);
+      background: var(--orb-top);
     }
 
     .background-orb-bottom {
@@ -51,7 +128,7 @@
       left: -8rem;
       width: 24rem;
       height: 24rem;
-      background: rgba(102, 64, 40, 0.12);
+      background: var(--orb-bottom);
     }
 
     .page-shell {
@@ -136,17 +213,28 @@
     .product-card::after {
       content: "Open";
       color: var(--accent);
+      padding: 0.52rem 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--button-background);
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      transition: border-color 180ms ease, background 180ms ease;
     }
 
     .product-card:hover,
     .product-card:focus-visible {
       transform: translateY(-2px);
-      border-color: rgba(111, 61, 35, 0.28);
-      background: rgba(255, 251, 247, 0.96);
+      border-color: var(--hover-line);
+      background: var(--hover-card);
+    }
+
+    .product-card:hover::after,
+    .product-card:focus-visible::after {
+      border-color: var(--hover-line);
+      background: var(--button-hover-background);
     }
 
     .empty-state {
@@ -155,7 +243,7 @@
       border: 1px dashed var(--line);
       border-radius: 1.2rem;
       color: var(--muted);
-      background: rgba(255, 255, 255, 0.36);
+      background: var(--empty-background);
     }
 
     .disclosure {
@@ -184,10 +272,31 @@
       .product-card {
         min-height: 4rem;
       }
+
+      .theme-toggle {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
     }
   </style>
+  <script>
+    (function () {
+      var storedTheme = null;
+      try {
+        storedTheme = localStorage.getItem("shopping-theme");
+      } catch (error) {}
+
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = storedTheme || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+    }());
+  </script>
 </head>
 <body>
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+    <span class="theme-toggle-icon" aria-hidden="true">☀️</span>
+    <span class="theme-toggle-text">Light</span>
+  </button>
   <div class="background-orb background-orb-top"></div>
   <div class="background-orb background-orb-bottom"></div>
   <main class="page-shell">
@@ -233,5 +342,32 @@
       Some links may be commissionable. As an Amazon Associate I earn from qualifying purchases.
     </p>
   </main>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var toggle = document.querySelector(".theme-toggle");
+      var icon = toggle.querySelector(".theme-toggle-icon");
+      var text = toggle.querySelector(".theme-toggle-text");
+
+      function applyTheme(theme) {
+        var isDark = theme === "dark";
+        root.dataset.theme = theme;
+        icon.textContent = isDark ? "🌙" : "☀️";
+        text.textContent = isDark ? "Dark" : "Light";
+        toggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+        toggle.setAttribute("aria-pressed", String(isDark));
+      }
+
+      applyTheme(root.dataset.theme || "light");
+
+      toggle.addEventListener("click", function () {
+        var nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+        try {
+          localStorage.setItem("shopping-theme", nextTheme);
+        } catch (error) {}
+        applyTheme(nextTheme);
+      });
+    }());
+  </script>
 </body>
 </html>
