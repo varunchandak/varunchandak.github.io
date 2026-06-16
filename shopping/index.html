@@ -18,7 +18,7 @@
       --ink: #241b16;
       --muted: #6d5a4d;
       --paper: #f7f1ea;
-      --card: rgba(255, 250, 245, 0.84);
+      --card: rgba(255, 250, 245, 0.86);
       --line: rgba(62, 40, 24, 0.12);
       --accent: #9a5b36;
       --accent-deep: #6f3d23;
@@ -29,7 +29,7 @@
         linear-gradient(135deg, #fbf7f2 0%, var(--paper) 100%);
       --orb-top: rgba(191, 133, 88, 0.18);
       --orb-bottom: rgba(102, 64, 40, 0.12);
-      --hover-card: rgba(255, 251, 247, 0.96);
+      --hover-card: rgba(255, 251, 247, 0.98);
       --hover-line: rgba(111, 61, 35, 0.28);
       --empty-background: rgba(255, 255, 255, 0.36);
       --button-background: rgba(154, 91, 54, 0.11);
@@ -59,9 +59,7 @@
       --button-hover-background: rgba(224, 160, 113, 0.2);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       min-height: 100vh;
@@ -133,10 +131,14 @@
 
     .page-shell {
       position: relative;
-      width: min(100%, 42rem);
+      width: min(100%, 72rem);
       margin: 0 auto;
-      padding: 4rem 1.25rem 2rem;
+      padding: 4rem 1.25rem 2.5rem;
       animation: rise 650ms ease-out both;
+    }
+
+    .hero {
+      max-width: 44rem;
     }
 
     .eyebrow {
@@ -150,16 +152,16 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
     }
 
     .intro {
-      margin: 1rem 0 0;
+      margin: 1.1rem 0 0;
       color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 1.04rem;
+      line-height: 1.65;
     }
 
     .list-note {
@@ -168,20 +170,65 @@
       font-size: 0.9rem;
     }
 
+    .filter-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      gap: 0.55rem;
+      margin: 2rem -0.25rem 0;
+      padding: 0.75rem 0.25rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .filter-bar::-webkit-scrollbar { display: none; }
+
+    .filter-chip {
+      flex: 0 0 auto;
+      padding: 0.62rem 0.82rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .filter-chip:hover,
+    .filter-chip:focus-visible,
+    .filter-chip.is-active {
+      transform: translateY(-1px);
+      border-color: var(--hover-line);
+      background: var(--button-hover-background);
+      color: var(--ink);
+    }
+
+    .filter-count {
+      color: var(--accent);
+      font-size: 0.75em;
+    }
+
     .product-list {
       display: grid;
-      gap: 0.9rem;
-      margin-top: 0.9rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.85rem;
     }
 
     .product-card {
       display: flex;
-      align-items: center;
+      min-height: 15.5rem;
+      flex-direction: column;
       justify-content: space-between;
-      min-height: 4.25rem;
-      padding: 1rem 1.1rem;
+      gap: 1.4rem;
+      padding: 1.05rem;
       border: 1px solid var(--line);
-      border-radius: 1.2rem;
+      border-radius: 1.35rem;
       background: var(--card);
       box-shadow: var(--shadow);
       color: var(--ink);
@@ -191,48 +238,74 @@
       animation: rise 650ms ease-out both;
     }
 
-    .product-copy {
-      display: grid;
-      gap: 0.35rem;
-      min-width: 0;
+    .product-card.is-hidden { display: none; }
+
+    .product-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
     }
 
-    .product-name {
-      font-size: 1rem;
-    }
-
-    .product-url {
-      overflow: hidden;
+    .category-badge {
+      max-width: 70%;
+      padding: 0.38rem 0.58rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
       color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.35;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      font-size: 0.74rem;
+      font-weight: 700;
+      line-height: 1.15;
     }
 
-    .product-card::after {
-      content: "Open";
+    .product-action {
+      flex: 0 0 auto;
       color: var(--accent);
-      padding: 0.52rem 0.7rem;
+      padding: 0.45rem 0.64rem;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--button-background);
-      font-size: 0.82rem;
-      font-weight: 700;
+      font-size: 0.76rem;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       transition: border-color 180ms ease, background 180ms ease;
     }
 
+    .product-copy {
+      display: grid;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .product-name {
+      display: -webkit-box;
+      overflow: hidden;
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.3;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+    }
+
+    .product-url {
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.35;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     .product-card:hover,
     .product-card:focus-visible {
-      transform: translateY(-2px);
+      transform: translateY(-4px);
       border-color: var(--hover-line);
       background: var(--hover-card);
     }
 
-    .product-card:hover::after,
-    .product-card:focus-visible::after {
+    .product-card:hover .product-action,
+    .product-card:focus-visible .product-action {
       border-color: var(--hover-line);
       background: var(--button-hover-background);
     }
@@ -264,13 +337,23 @@
       }
     }
 
+    @media (max-width: 900px) {
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 640px) {
       .page-shell {
-        padding-top: 2.5rem;
+        padding-top: 4.25rem;
+      }
+
+      .product-list {
+        grid-template-columns: 1fr;
       }
 
       .product-card {
-        min-height: 4rem;
+        min-height: 13rem;
       }
 
       .theme-toggle {
@@ -300,44 +383,61 @@
   <div class="background-orb background-orb-top"></div>
   <div class="background-orb background-orb-bottom"></div>
   <main class="page-shell">
-    <p class="eyebrow">Varun Chandak</p>
-    <h1>Things I recommend</h1>
-    <p class="intro">A running list of products I personally use or recommend.</p>
-    <p class="list-note">Updated whenever I find something worth sharing.</p>
-    <section class="product-list" aria-label="Recommended products">
-      <a class="product-card" href="https://amzn.to/4nAVszK" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Speed Writing In Improved Handwriting - MR Script Writing - Book A (For Kids Age 6-9 Years)</span><span class="product-url">https://amzn.to/4nAVszK</span></span></a>
-<a class="product-card" href="https://amzn.to/42yOKjZ" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">The Indus Valley Triply Stainless Steel Idli Maker/Multi Kadai</span><span class="product-url">https://amzn.to/42yOKjZ</span></span></a>
-<a class="product-card" href="https://amzn.to/4uPhcdp" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">EcoCare Kitchen Cleaner | Multi-Purpose Foam-Based Cleaning Spray Heavy Duty Degreaser for Chimney</span><span class="product-url">https://amzn.to/4uPhcdp</span></span></a>
-<a class="product-card" href="https://amzn.to/4ww2cCP" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Bloom Buddy Growth Booster Liquid is a 1L nutrient-rich plant tonic for faster growth and vibrant greenery</span><span class="product-url">https://amzn.to/4ww2cCP</span></span></a>
-<a class="product-card" href="https://amzn.to/4dnQTDV" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Epson EcoTank L8050</span><span class="product-url">https://amzn.to/4dnQTDV</span></span></a>
-<a class="product-card" href="https://amzn.to/3R7ElJD" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">ALIFIYA Nylon Dust Proof Washable Printer Cover for Epson L8050 Single Function Ink Tank Printer - Black</span><span class="product-url">https://amzn.to/3R7ElJD</span></span></a>
-<a class="product-card" href="https://amzn.to/42DmtZu" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">18 pcs Air Pump Accessories Valve Adapter Kit - for Bicycle Presta/Dunlop/Schrader/Auto Valve - Ball Inflation Needles - Balloon Nozzles</span><span class="product-url">https://amzn.to/42DmtZu</span></span></a>
-<a class="product-card" href="https://amzn.to/4uSddwF" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Artis AR-4SS-3USBCB 4 Universal Sockets with 2 USB Ports &amp; 1 USB Type C Port with Circuit Breaker Surge Protector (Black)</span><span class="product-url">https://amzn.to/4uSddwF</span></span></a>
-<a class="product-card" href="https://amzn.to/3RdE3AT" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">ORACURA® OC200 Dental PRO Smart PLUS Water Flosser® White/8 Nozzle Tips/Portable &amp; Rechargeable/Custom 8 Water Pressure Settings/200ml Tank Capacity/IPX7 Waterproof/365 Days Warranty</span><span class="product-url">https://amzn.to/3RdE3AT</span></span></a>
-<a class="product-card" href="https://amzn.to/4nuKvQ9" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">UV Doux Silicone Sunscreen Gel SPF 50 PA+++</span><span class="product-url">https://amzn.to/4nuKvQ9</span></span></a>
-<a class="product-card" href="https://amzn.to/4ditl3e" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Dettol Multi-Surface Disinfectant Sanitizer Spray Bottle | 24 hours protection| Germ Kill on Hard and Soft Surfaces</span><span class="product-url">https://amzn.to/4ditl3e</span></span></a>
-<a class="product-card" href="https://amzn.to/4dpcTOS" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">WOLFBOX MF100 Electric Air Duster - 150000 RPM Rechargeable Cordless Blower/Brushless Motor/3-Speed Adjustable</span><span class="product-url">https://amzn.to/4dpcTOS</span></span></a>
-<a class="product-card" href="https://amzn.to/42BRgpK" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Vandelay Infrared Digital Thermometer For Fever/Non-Contact Laser Infrared Thermometer Temperature Gun</span><span class="product-url">https://amzn.to/42BRgpK</span></span></a>
-<a class="product-card" href="https://amzn.to/492uIBY" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">JIALTO 2 Pieces Stainless Steel Broom Holder with Hook - Wall-Mounted Adhesive Waterproof Rustproof Heavy Duty Broom and Mop Stick Holder for Home</span><span class="product-url">https://amzn.to/492uIBY</span></span></a>
-<a class="product-card" href="https://amzn.to/4u9NkZj" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Philips OneBlade Turbo2X Hybrid Trim/Edge/Shave</span><span class="product-url">https://amzn.to/4u9NkZj</span></span></a>
-<a class="product-card" href="https://amzn.to/3PEXsu5" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Bosch 15 Place Setting (Fits up to 80 utensils) Free Standing Dishwasher for Indian Utensils</span><span class="product-url">https://amzn.to/3PEXsu5</span></span></a>
-<a class="product-card" href="https://amzn.to/3R2TuMl" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">amiciAuto Universal Tubeless Tyre Puncture Repair Kit with 2 in 1 Reamer tool for Tubeless Tyre with Premium Storage Bag for Car/Bike</span><span class="product-url">https://amzn.to/3R2TuMl</span></span></a>
-<a class="product-card" href="https://amzn.to/4nwhdR3" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Danpoo Retractable Clothesline | Heavy Duty Clothes Drying Laundry Line Indoor Outdoor| Wall Mounted Stainless Steel Laundry Line</span><span class="product-url">https://amzn.to/4nwhdR3</span></span></a>
-<a class="product-card" href="https://amzn.to/4tJyc3P" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Wavex Upholstery &amp; Carpet Cleaner (1L) | Can be Used as a Car Interior Cleaner</span><span class="product-url">https://amzn.to/4tJyc3P</span></span></a>
-<a class="product-card" href="https://amzn.to/4uVIoaC" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Atomberg SL 1 Smart Door Lock | 6 Ways Unlocking | Fingerprint | PIN | OTP | NFC Card</span><span class="product-url">https://amzn.to/4uVIoaC</span></span></a>
-<a class="product-card" href="https://amzn.to/4dtJKSP" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Fulminare self-adhesive aluminum bathroom corner shelf rack</span><span class="product-url">https://amzn.to/4dtJKSP</span></span></a>
-<a class="product-card" href="https://amzn.to/4dnZuGH" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Plantex Aluminum Folding Towel Holder Rack for Bathroom (Black)</span><span class="product-url">https://amzn.to/4dnZuGH</span></span></a>
-<a class="product-card" href="https://amzn.to/43cShVe" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Plantex Brass And 304 Grade Stainless Steel Body Two-Sided 360° Swivel Mirror/Bathroom Mirror/Makeup Mirror/Vanity Mirror Wall Mounted</span><span class="product-url">https://amzn.to/43cShVe</span></span></a>
-<a class="product-card" href="https://amzn.to/49TsG7x" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Plantex Towel Rack for Bathroom/Stainless Steel Towel Bar - (Black)</span><span class="product-url">https://amzn.to/49TsG7x</span></span></a>
-<a class="product-card" href="https://amzn.to/3Rg3UIo" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Daikin 1 Ton 3 Star Inverter Split AC (Copper, PM 2.5 Filter, 2024 Model, MTKL35UV16, White)</span><span class="product-url">https://amzn.to/3Rg3UIo</span></span></a>
-<a class="product-card" href="https://amzn.to/3PsTu7N" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Lloyd 0.8 Ton 3 Star Inverter Split AC (5 in 1 Convertible, 100% Copper, Anti-Viral + PM 2.5 Filter, White with Silver Deco Strip, GLS09I3FOSEV)</span><span class="product-url">https://amzn.to/3PsTu7N</span></span></a>
-<a class="product-card" href="https://amzn.to/4upZAVu" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Faber Zippy Instant Geyser 5 Litre| 3000W Powerful Heating | Superior Energy Efficiency | 5Yr Tank, 3Yr Heating Element 2 Yr Product Warranty by Faber | Suitable for Kitchen &amp; Bathroom</span><span class="product-url">https://amzn.to/4upZAVu</span></span></a>
-<a class="product-card" href="https://amzn.to/4fpaLZW" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Sunshine Regal Pro 3 Burner | Toughened Glass Gas Stove | 5 Year Warranty on Burner and Glass | ISI Certified | Manual Ignition | 5G technology, LPG Ready &amp; PNG Compatible (Premium Black)</span><span class="product-url">https://amzn.to/4fpaLZW</span></span></a>
-<a class="product-card" href="https://amzn.to/4tHJp4J" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">BOSCH GSB 185-Li Professional Kit | Brushless Motor | Speed (1st/2nd)- 0-500/0-1900 RPM | Chuck Size 13 mm | Manufacturing &amp; Construction Use | 2 Batteries &amp; 1 charger Included| 1 Yr Warranty</span><span class="product-url">https://amzn.to/4tHJp4J</span></span></a>
-<a class="product-card" href="https://amzn.to/4dD0eIq" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">70mai Pro Plus+ A500S Dual Channel Car Dash Cam, 5MP Sony STAVIS IMX335 Sensor, 3K Front &amp; Full HD Rear, Refined ADAS, Built-in GPS Logger, Night Owl Vision, 70mai App, Optional Parking Mode</span><span class="product-url">https://amzn.to/4dD0eIq</span></span></a>
-<a class="product-card" href="https://amzn.to/4dgUd5d" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Transcend USD350V 64GB U1 microSDXC Class 10 Micro SD Memory Card up to 95/40 MB/s (TS64GUSD350V)</span><span class="product-url">https://amzn.to/4dgUd5d</span></span></a>
-<a class="product-card" href="https://amzn.to/4dpvwCg" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">SanDisk 128GB High Endurance Video MicroSDXC Card with Adapter for Dash Cam and Home Monitoring Surveillance Systems - C10, U3, V30, 4K UHD, Micro SD Card</span><span class="product-url">https://amzn.to/4dpvwCg</span></span></a>
-<a class="product-card" href="https://amzn.to/4vPW5bg" target="_blank" rel="noopener noreferrer sponsored"><span class="product-copy"><span class="product-name">Bosch PureMixx Plus 800W | Mixer Grinder + Food Processor | 5 Jars | 40+ Functions | Atta Kneading, Chopping, Slicing | Coarse Grinding | Hands Free Operation | 7 Year Motor Warranty (MP8515A1KI)</span><span class="product-url">https://amzn.to/4vPW5bg</span></span></a>
+    <div class="hero">
+      <p class="eyebrow">Varun Chandak</p>
+      <h1>Things I recommend</h1>
+      <p class="intro">A running list of products I personally use or recommend.</p>
+      <p class="list-note">Filter by category, or browse everything worth sharing.</p>
+    </div>
+    <nav class="filter-bar" aria-label="Product categories">
+      <button class="filter-chip is-active" type="button" data-category="all" aria-pressed="true">All</button>
+<button class="filter-chip" type="button" data-category="Kitchen &amp; Dining" aria-pressed="false">Kitchen &amp; Dining <span class="filter-count">3</span></button>
+<button class="filter-chip" type="button" data-category="Home Appliances" aria-pressed="false">Home Appliances <span class="filter-count">4</span></button>
+<button class="filter-chip" type="button" data-category="Home &amp; Bath" aria-pressed="false">Home &amp; Bath <span class="filter-count">4</span></button>
+<button class="filter-chip" type="button" data-category="Cleaning &amp; Laundry" aria-pressed="false">Cleaning &amp; Laundry <span class="filter-count">5</span></button>
+<button class="filter-chip" type="button" data-category="Electronics" aria-pressed="false">Electronics <span class="filter-count">4</span></button>
+<button class="filter-chip" type="button" data-category="Personal Care" aria-pressed="false">Personal Care <span class="filter-count">4</span></button>
+<button class="filter-chip" type="button" data-category="Automotive" aria-pressed="false">Automotive <span class="filter-count">6</span></button>
+<button class="filter-chip" type="button" data-category="Garden" aria-pressed="false">Garden <span class="filter-count">1</span></button>
+<button class="filter-chip" type="button" data-category="Home Security" aria-pressed="false">Home Security <span class="filter-count">1</span></button>
+<button class="filter-chip" type="button" data-category="Tools &amp; Hardware" aria-pressed="false">Tools &amp; Hardware <span class="filter-count">1</span></button>
+<button class="filter-chip" type="button" data-category="Books &amp; Learning" aria-pressed="false">Books &amp; Learning <span class="filter-count">1</span></button>
+    </nav>
+    <section class="product-list" aria-label="Recommended products" data-categories='["Kitchen &amp; Dining", "Home Appliances", "Home &amp; Bath", "Cleaning &amp; Laundry", "Electronics", "Personal Care", "Automotive", "Garden", "Home Security", "Tools &amp; Hardware", "Books &amp; Learning"]'>
+      <a class="product-card" href="https://amzn.to/4nAVszK" data-category="Books &amp; Learning" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Books &amp; Learning</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Speed Writing In Improved Handwriting - MR Script Writing - Book A (For Kids Age 6-9 Years)</span><span class="product-url">https://amzn.to/4nAVszK</span></span></a>
+<a class="product-card" href="https://amzn.to/42yOKjZ" data-category="Kitchen &amp; Dining" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Kitchen &amp; Dining</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">The Indus Valley Triply Stainless Steel Idli Maker/Multi Kadai</span><span class="product-url">https://amzn.to/42yOKjZ</span></span></a>
+<a class="product-card" href="https://amzn.to/4uPhcdp" data-category="Cleaning &amp; Laundry" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Cleaning &amp; Laundry</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">EcoCare Kitchen Cleaner | Multi-Purpose Foam-Based Cleaning Spray Heavy Duty Degreaser for Chimney</span><span class="product-url">https://amzn.to/4uPhcdp</span></span></a>
+<a class="product-card" href="https://amzn.to/4ww2cCP" data-category="Garden" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Garden</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Bloom Buddy Growth Booster Liquid is a 1L nutrient-rich plant tonic for faster growth and vibrant greenery</span><span class="product-url">https://amzn.to/4ww2cCP</span></span></a>
+<a class="product-card" href="https://amzn.to/4dnQTDV" data-category="Electronics" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Electronics</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Epson EcoTank L8050</span><span class="product-url">https://amzn.to/4dnQTDV</span></span></a>
+<a class="product-card" href="https://amzn.to/3R7ElJD" data-category="Electronics" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Electronics</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">ALIFIYA Nylon Dust Proof Washable Printer Cover for Epson L8050 Single Function Ink Tank Printer - Black</span><span class="product-url">https://amzn.to/3R7ElJD</span></span></a>
+<a class="product-card" href="https://amzn.to/42DmtZu" data-category="Automotive" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Automotive</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">18 pcs Air Pump Accessories Valve Adapter Kit - for Bicycle Presta/Dunlop/Schrader/Auto Valve - Ball Inflation Needles - Balloon Nozzles</span><span class="product-url">https://amzn.to/42DmtZu</span></span></a>
+<a class="product-card" href="https://amzn.to/4uSddwF" data-category="Electronics" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Electronics</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Artis AR-4SS-3USBCB 4 Universal Sockets with 2 USB Ports &amp; 1 USB Type C Port with Circuit Breaker Surge Protector (Black)</span><span class="product-url">https://amzn.to/4uSddwF</span></span></a>
+<a class="product-card" href="https://amzn.to/3RdE3AT" data-category="Personal Care" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Personal Care</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">ORACURA® OC200 Dental PRO Smart PLUS Water Flosser® White/8 Nozzle Tips/Portable &amp; Rechargeable/Custom 8 Water Pressure Settings/200ml Tank Capacity/IPX7 Waterproof/365 Days Warranty</span><span class="product-url">https://amzn.to/3RdE3AT</span></span></a>
+<a class="product-card" href="https://amzn.to/4nuKvQ9" data-category="Personal Care" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Personal Care</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">UV Doux Silicone Sunscreen Gel SPF 50 PA+++</span><span class="product-url">https://amzn.to/4nuKvQ9</span></span></a>
+<a class="product-card" href="https://amzn.to/4ditl3e" data-category="Cleaning &amp; Laundry" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Cleaning &amp; Laundry</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Dettol Multi-Surface Disinfectant Sanitizer Spray Bottle | 24 hours protection| Germ Kill on Hard and Soft Surfaces</span><span class="product-url">https://amzn.to/4ditl3e</span></span></a>
+<a class="product-card" href="https://amzn.to/4dpcTOS" data-category="Cleaning &amp; Laundry" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Cleaning &amp; Laundry</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">WOLFBOX MF100 Electric Air Duster - 150000 RPM Rechargeable Cordless Blower/Brushless Motor/3-Speed Adjustable</span><span class="product-url">https://amzn.to/4dpcTOS</span></span></a>
+<a class="product-card" href="https://amzn.to/42BRgpK" data-category="Personal Care" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Personal Care</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Vandelay Infrared Digital Thermometer For Fever/Non-Contact Laser Infrared Thermometer Temperature Gun</span><span class="product-url">https://amzn.to/42BRgpK</span></span></a>
+<a class="product-card" href="https://amzn.to/492uIBY" data-category="Cleaning &amp; Laundry" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Cleaning &amp; Laundry</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">JIALTO 2 Pieces Stainless Steel Broom Holder with Hook - Wall-Mounted Adhesive Waterproof Rustproof Heavy Duty Broom and Mop Stick Holder for Home</span><span class="product-url">https://amzn.to/492uIBY</span></span></a>
+<a class="product-card" href="https://amzn.to/4u9NkZj" data-category="Personal Care" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Personal Care</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Philips OneBlade Turbo2X Hybrid Trim/Edge/Shave</span><span class="product-url">https://amzn.to/4u9NkZj</span></span></a>
+<a class="product-card" href="https://amzn.to/3PEXsu5" data-category="Home Appliances" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Home Appliances</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Bosch 15 Place Setting (Fits up to 80 utensils) Free Standing Dishwasher for Indian Utensils</span><span class="product-url">https://amzn.to/3PEXsu5</span></span></a>
+<a class="product-card" href="https://amzn.to/3R2TuMl" data-category="Automotive" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Automotive</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">amiciAuto Universal Tubeless Tyre Puncture Repair Kit with 2 in 1 Reamer tool for Tubeless Tyre with Premium Storage Bag for Car/Bike</span><span class="product-url">https://amzn.to/3R2TuMl</span></span></a>
+<a class="product-card" href="https://amzn.to/4nwhdR3" data-category="Cleaning &amp; Laundry" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Cleaning &amp; Laundry</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Danpoo Retractable Clothesline | Heavy Duty Clothes Drying Laundry Line Indoor Outdoor| Wall Mounted Stainless Steel Laundry Line</span><span class="product-url">https://amzn.to/4nwhdR3</span></span></a>
+<a class="product-card" href="https://amzn.to/4tJyc3P" data-category="Automotive" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Automotive</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Wavex Upholstery &amp; Carpet Cleaner (1L) | Can be Used as a Car Interior Cleaner</span><span class="product-url">https://amzn.to/4tJyc3P</span></span></a>
+<a class="product-card" href="https://amzn.to/4uVIoaC" data-category="Home Security" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Home Security</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Atomberg SL 1 Smart Door Lock | 6 Ways Unlocking | Fingerprint | PIN | OTP | NFC Card</span><span class="product-url">https://amzn.to/4uVIoaC</span></span></a>
+<a class="product-card" href="https://amzn.to/4dtJKSP" data-category="Home &amp; Bath" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Home &amp; Bath</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Fulminare self-adhesive aluminum bathroom corner shelf rack</span><span class="product-url">https://amzn.to/4dtJKSP</span></span></a>
+<a class="product-card" href="https://amzn.to/4dnZuGH" data-category="Home &amp; Bath" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Home &amp; Bath</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Plantex Aluminum Folding Towel Holder Rack for Bathroom (Black)</span><span class="product-url">https://amzn.to/4dnZuGH</span></span></a>
+<a class="product-card" href="https://amzn.to/43cShVe" data-category="Home &amp; Bath" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Home &amp; Bath</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Plantex Brass And 304 Grade Stainless Steel Body Two-Sided 360° Swivel Mirror/Bathroom Mirror/Makeup Mirror/Vanity Mirror Wall Mounted</span><span class="product-url">https://amzn.to/43cShVe</span></span></a>
+<a class="product-card" href="https://amzn.to/49TsG7x" data-category="Home &amp; Bath" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Home &amp; Bath</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Plantex Towel Rack for Bathroom/Stainless Steel Towel Bar - (Black)</span><span class="product-url">https://amzn.to/49TsG7x</span></span></a>
+<a class="product-card" href="https://amzn.to/3Rg3UIo" data-category="Home Appliances" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Home Appliances</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Daikin 1 Ton 3 Star Inverter Split AC (Copper, PM 2.5 Filter, 2024 Model, MTKL35UV16, White)</span><span class="product-url">https://amzn.to/3Rg3UIo</span></span></a>
+<a class="product-card" href="https://amzn.to/3PsTu7N" data-category="Home Appliances" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Home Appliances</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Lloyd 0.8 Ton 3 Star Inverter Split AC (5 in 1 Convertible, 100% Copper, Anti-Viral + PM 2.5 Filter, White with Silver Deco Strip, GLS09I3FOSEV)</span><span class="product-url">https://amzn.to/3PsTu7N</span></span></a>
+<a class="product-card" href="https://amzn.to/4upZAVu" data-category="Home Appliances" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Home Appliances</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Faber Zippy Instant Geyser 5 Litre| 3000W Powerful Heating | Superior Energy Efficiency | 5Yr Tank, 3Yr Heating Element 2 Yr Product Warranty by Faber | Suitable for Kitchen &amp; Bathroom</span><span class="product-url">https://amzn.to/4upZAVu</span></span></a>
+<a class="product-card" href="https://amzn.to/4fpaLZW" data-category="Kitchen &amp; Dining" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Kitchen &amp; Dining</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Sunshine Regal Pro 3 Burner | Toughened Glass Gas Stove | 5 Year Warranty on Burner and Glass | ISI Certified | Manual Ignition | 5G technology, LPG Ready &amp; PNG Compatible (Premium Black)</span><span class="product-url">https://amzn.to/4fpaLZW</span></span></a>
+<a class="product-card" href="https://amzn.to/4tHJp4J" data-category="Tools &amp; Hardware" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Tools &amp; Hardware</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">BOSCH GSB 185-Li Professional Kit | Brushless Motor | Speed (1st/2nd)- 0-500/0-1900 RPM | Chuck Size 13 mm | Manufacturing &amp; Construction Use | 2 Batteries &amp; 1 charger Included| 1 Yr Warranty</span><span class="product-url">https://amzn.to/4tHJp4J</span></span></a>
+<a class="product-card" href="https://amzn.to/4dD0eIq" data-category="Automotive" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Automotive</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">70mai Pro Plus+ A500S Dual Channel Car Dash Cam, 5MP Sony STAVIS IMX335 Sensor, 3K Front &amp; Full HD Rear, Refined ADAS, Built-in GPS Logger, Night Owl Vision, 70mai App, Optional Parking Mode</span><span class="product-url">https://amzn.to/4dD0eIq</span></span></a>
+<a class="product-card" href="https://amzn.to/4dgUd5d" data-category="Electronics" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Electronics</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Transcend USD350V 64GB U1 microSDXC Class 10 Micro SD Memory Card up to 95/40 MB/s (TS64GUSD350V)</span><span class="product-url">https://amzn.to/4dgUd5d</span></span></a>
+<a class="product-card" href="https://amzn.to/4dpvwCg" data-category="Automotive" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Automotive</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">SanDisk 128GB High Endurance Video MicroSDXC Card with Adapter for Dash Cam and Home Monitoring Surveillance Systems - C10, U3, V30, 4K UHD, Micro SD Card</span><span class="product-url">https://amzn.to/4dpvwCg</span></span></a>
+<a class="product-card" href="https://amzn.to/4vPW5bg" data-category="Kitchen &amp; Dining" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Kitchen &amp; Dining</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">Bosch PureMixx Plus 800W | Mixer Grinder + Food Processor | 5 Jars | 40+ Functions | Atta Kneading, Chopping, Slicing | Coarse Grinding | Hands Free Operation | 7 Year Motor Warranty (MP8515A1KI)</span><span class="product-url">https://amzn.to/4vPW5bg</span></span></a>
+<a class="product-card" href="https://amzn.to/4ecvnnn" data-category="Automotive" target="_blank" rel="noopener noreferrer sponsored"><span class="product-card-top"><span class="category-badge">Automotive</span><span class="product-action">Open</span></span><span class="product-copy"><span class="product-name">3M Foaming Car Interior Cleaner, Upholstery &amp; Leather Cleaner, Removes Tough Stains &amp; Dirt Inside Your car (290g, Pack of 1)</span><span class="product-url">https://amzn.to/4ecvnnn</span></span></a>
     </section>
     <p class="disclosure">
       Some links may be commissionable. As an Amazon Associate I earn from qualifying purchases.
@@ -367,6 +467,30 @@
           localStorage.setItem("shopping-theme", nextTheme);
         } catch (error) {}
         applyTheme(nextTheme);
+      });
+    }());
+
+    (function () {
+      var filterButtons = Array.prototype.slice.call(document.querySelectorAll(".filter-chip"));
+      var productCards = Array.prototype.slice.call(document.querySelectorAll(".product-card"));
+
+      function applyFilter(category) {
+        filterButtons.forEach(function (button) {
+          var isActive = button.dataset.category === category;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        productCards.forEach(function (card) {
+          var shouldShow = category === "all" || card.dataset.category === category;
+          card.classList.toggle("is-hidden", !shouldShow);
+        });
+      }
+
+      filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyFilter(button.dataset.category);
+        });
       });
     }());
   </script>
