@@ -170,22 +170,111 @@
       font-size: 0.9rem;
     }
 
+    .list-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .grid-size-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .grid-size-buttons {
+      display: inline-flex;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      box-shadow: 0 10px 26px rgba(31, 23, 17, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .grid-size-button {
+      display: grid;
+      min-width: 2.65rem;
+      min-height: 2.2rem;
+      place-items: center;
+      padding: 0.45rem 0.6rem;
+      border: 0;
+      border-right: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .grid-size-dots {
+      display: inline-flex;
+      gap: 0.16rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .grid-size-dots::before,
+    .grid-size-dots::after,
+    .grid-size-dots span,
+    .grid-size-dots i,
+    .grid-size-dots b {
+      width: 0.34rem;
+      height: 0.34rem;
+      border-radius: 999px;
+      background: currentColor;
+      content: "";
+    }
+
+    .grid-size-dots span,
+    .grid-size-dots i,
+    .grid-size-dots b {
+      display: block;
+    }
+
+    .grid-size-button:last-child { border-right: 0; }
+
+    .grid-size-button:hover,
+    .grid-size-button:focus-visible,
+    .grid-size-button.is-active {
+      background: var(--button-hover-background);
+      color: var(--ink);
+    }
+
     .filter-bar {
       position: sticky;
       top: 0;
-      z-index: 1;
+      z-index: 10;
       display: flex;
       gap: 0.55rem;
-      margin: 2rem -0.25rem 0;
-      padding: 0.75rem 0.25rem;
+      margin: 2rem -0.75rem 0;
+      padding: 0.75rem;
       overflow-x: auto;
-      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+      scrollbar-width: thin;
+      scroll-snap-type: x proximity;
+      background: color-mix(in srgb, var(--background) 94%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      box-shadow: 0 18px 38px rgba(31, 23, 17, 0.12);
+      backdrop-filter: blur(18px);
     }
 
-    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-bar::-webkit-scrollbar { height: 0.45rem; }
+
+    .filter-bar::-webkit-scrollbar-thumb {
+      background: color-mix(in srgb, var(--muted) 35%, transparent);
+      border-radius: 999px;
+    }
 
     .filter-chip {
       flex: 0 0 auto;
+      scroll-snap-align: start;
       padding: 0.62rem 0.82rem;
       border: 1px solid var(--line);
       border-radius: 999px;
@@ -216,8 +305,29 @@
     .product-list {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.4rem;
+      gap: 1rem;
       margin-top: 0.85rem;
+    }
+
+    @media (min-width: 901px) {
+      :root[data-grid-size="4"] .product-list {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      :root[data-grid-size="5"] .product-list {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      :root[data-grid-size="5"] .product-card {
+        gap: 0.85rem;
+        padding: 0.85rem;
+      }
+
+      :root[data-grid-size="5"] .product-action,
+      :root[data-grid-size="5"] .product-share {
+        padding: 0.4rem 0.52rem;
+        font-size: 0.68rem;
+      }
     }
 
     .product-card {
@@ -271,11 +381,12 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.65rem;
     }
 
     .category-badge {
-      max-width: 70%;
+      max-width: 100%;
       padding: 0.38rem 0.58rem;
       border: 1px solid var(--line);
       border-radius: 999px;
@@ -291,8 +402,12 @@
 
     .product-actions {
       display: flex;
-      flex: 0 0 auto;
+      flex: 0 1 auto;
+      flex-wrap: wrap;
+      justify-content: flex-end;
       gap: 0.4rem;
+      margin-left: auto;
+      min-width: 0;
     }
 
     .product-action,
@@ -390,6 +505,15 @@
         padding-top: 4.25rem;
       }
 
+      .list-controls {
+        align-items: stretch;
+      }
+
+      .grid-size-control {
+        justify-content: space-between;
+        width: 100%;
+      }
+
       .product-list {
         grid-template-columns: 1fr;
       }
@@ -427,6 +551,12 @@
       var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
       var theme = storedTheme || (prefersDark ? "dark" : "light");
       document.documentElement.dataset.theme = theme;
+
+      var storedGridSize = null;
+      try {
+        storedGridSize = localStorage.getItem("shopping-grid-size");
+      } catch (error) {}
+      document.documentElement.dataset.gridSize = ["3", "4", "5"].indexOf(storedGridSize) >= 0 ? storedGridSize : "3";
     }());
   </script>
 </head>
@@ -442,21 +572,32 @@
       <p class="eyebrow">Varun Chandak</p>
       <h1>Things I recommend</h1>
       <p class="intro">A running list of products I personally use or recommend.</p>
-      <p class="list-note">Filter by category, or browse everything worth sharing.</p>
+      <p class="list-note">Filter by category, choose grid density, or browse everything worth sharing.</p>
+      <div class="list-controls" aria-label="List display controls">
+        <div class="grid-size-control" aria-label="Grid size">
+          <span>Grid size</span>
+          <span class="grid-size-buttons" role="group" aria-label="Choose product grid columns">
+            <button class="grid-size-button is-active" type="button" data-grid-size="3" aria-label="Use 3 columns" aria-pressed="true"><span class="grid-size-dots"><span></span></span></button>
+            <button class="grid-size-button" type="button" data-grid-size="4" aria-label="Use 4 columns" aria-pressed="false"><span class="grid-size-dots"><span></span><i></i></span></button>
+            <button class="grid-size-button" type="button" data-grid-size="5" aria-label="Use 5 columns" aria-pressed="false"><span class="grid-size-dots"><span></span><i></i><b></b></span></button>
+          </span>
+        </div>
+      </div>
     </div>
     <nav class="filter-bar" aria-label="Product categories">
       <button class="filter-chip is-active" type="button" data-category="all" aria-pressed="true">All</button>
 <button class="filter-chip" type="button" data-category="Kitchen &amp; Dining" aria-pressed="false">Kitchen &amp; Dining <span class="filter-count">3</span></button>
-<button class="filter-chip" type="button" data-category="Home Appliances" aria-pressed="false">Home Appliances <span class="filter-count">4</span></button>
+<button class="filter-chip" type="button" data-category="Home Appliances" aria-pressed="false">Home Appliances <span class="filter-count">5</span></button>
 <button class="filter-chip" type="button" data-category="Home &amp; Bath" aria-pressed="false">Home &amp; Bath <span class="filter-count">4</span></button>
 <button class="filter-chip" type="button" data-category="Cleaning &amp; Laundry" aria-pressed="false">Cleaning &amp; Laundry <span class="filter-count">5</span></button>
 <button class="filter-chip" type="button" data-category="Electronics" aria-pressed="false">Electronics <span class="filter-count">4</span></button>
 <button class="filter-chip" type="button" data-category="Personal Care" aria-pressed="false">Personal Care <span class="filter-count">4</span></button>
-<button class="filter-chip" type="button" data-category="Automotive" aria-pressed="false">Automotive <span class="filter-count">6</span></button>
+<button class="filter-chip" type="button" data-category="Automotive" aria-pressed="false">Automotive <span class="filter-count">7</span></button>
 <button class="filter-chip" type="button" data-category="Garden" aria-pressed="false">Garden <span class="filter-count">1</span></button>
 <button class="filter-chip" type="button" data-category="Home Security" aria-pressed="false">Home Security <span class="filter-count">1</span></button>
 <button class="filter-chip" type="button" data-category="Tools &amp; Hardware" aria-pressed="false">Tools &amp; Hardware <span class="filter-count">1</span></button>
 <button class="filter-chip" type="button" data-category="Books &amp; Learning" aria-pressed="false">Books &amp; Learning <span class="filter-count">1</span></button>
+<button class="filter-chip" type="button" data-category="Home Improvement" aria-pressed="false">Home Improvement <span class="filter-count">1</span></button>
     </nav>
     <section class="product-list" aria-label="Recommended products">
       <article class="product-card" data-category="Books &amp; Learning"><span class="product-media"><img src="assets/products/speed-writing-improved-handwriting-book-a.webp" alt="Cover of Speed Writing in Improved Handwriting Book A" loading="lazy"></span><span class="product-card-top"><span class="category-badge">Books &amp; Learning</span><span class="product-actions"><button class="product-share" type="button" data-url="https://amzn.to/4nAVszK" aria-label="Copy share link for Speed Writing In Improved Handwriting - MR Script Writing - Book A (For Kids Age 6-9 Years)">Share</button><a class="product-action" href="https://amzn.to/4nAVszK" target="_blank" rel="noopener noreferrer sponsored">Open</a></span></span><span class="product-copy"><span class="product-name">Speed Writing In Improved Handwriting - MR Script Writing - Book A (For Kids Age 6-9 Years)</span><span class="product-url">https://amzn.to/4nAVszK</span></span></article>
@@ -493,6 +634,9 @@
 <article class="product-card" data-category="Automotive"><span class="product-media"><img src="assets/products/sandisk-128gb-high-endurance-microsd.webp" alt="SanDisk High Endurance 128GB microSDXC memory card" loading="lazy"></span><span class="product-card-top"><span class="category-badge">Automotive</span><span class="product-actions"><button class="product-share" type="button" data-url="https://amzn.to/4dpvwCg" aria-label="Copy share link for SanDisk 128GB High Endurance Video MicroSDXC Card with Adapter for Dash Cam and Home Monitoring Surveillance Systems - C10, U3, V30, 4K UHD, Micro SD Card">Share</button><a class="product-action" href="https://amzn.to/4dpvwCg" target="_blank" rel="noopener noreferrer sponsored">Open</a></span></span><span class="product-copy"><span class="product-name">SanDisk 128GB High Endurance Video MicroSDXC Card with Adapter for Dash Cam and Home Monitoring Surveillance Systems - C10, U3, V30, 4K UHD, Micro SD Card</span><span class="product-url">https://amzn.to/4dpvwCg</span></span></article>
 <article class="product-card" data-category="Kitchen &amp; Dining"><span class="product-media"><img src="assets/products/bosch-puremixx-plus-800w-mixer-grinder.webp" alt="Bosch PureMixx Plus 800W mixer grinder with jars and food processor accessories" loading="lazy"></span><span class="product-card-top"><span class="category-badge">Kitchen &amp; Dining</span><span class="product-actions"><button class="product-share" type="button" data-url="https://amzn.to/4vPW5bg" aria-label="Copy share link for Bosch PureMixx Plus 800W | Mixer Grinder + Food Processor | 5 Jars | 40+ Functions | Atta Kneading, Chopping, Slicing | Coarse Grinding | Hands Free Operation | 7 Year Motor Warranty (MP8515A1KI)">Share</button><a class="product-action" href="https://amzn.to/4vPW5bg" target="_blank" rel="noopener noreferrer sponsored">Open</a></span></span><span class="product-copy"><span class="product-name">Bosch PureMixx Plus 800W | Mixer Grinder + Food Processor | 5 Jars | 40+ Functions | Atta Kneading, Chopping, Slicing | Coarse Grinding | Hands Free Operation | 7 Year Motor Warranty (MP8515A1KI)</span><span class="product-url">https://amzn.to/4vPW5bg</span></span></article>
 <article class="product-card" data-category="Automotive"><span class="product-media"><img src="assets/products/3m-foaming-car-interior-cleaner.webp" alt="3M foaming car interior cleaner aerosol can" loading="lazy"></span><span class="product-card-top"><span class="category-badge">Automotive</span><span class="product-actions"><button class="product-share" type="button" data-url="https://amzn.to/4ecvnnn" aria-label="Copy share link for 3M Foaming Car Interior Cleaner, Upholstery &amp; Leather Cleaner, Removes Tough Stains &amp; Dirt Inside Your car (290g, Pack of 1)">Share</button><a class="product-action" href="https://amzn.to/4ecvnnn" target="_blank" rel="noopener noreferrer sponsored">Open</a></span></span><span class="product-copy"><span class="product-name">3M Foaming Car Interior Cleaner, Upholstery &amp; Leather Cleaner, Removes Tough Stains &amp; Dirt Inside Your car (290g, Pack of 1)</span><span class="product-url">https://amzn.to/4ecvnnn</span></span></article>
+<article class="product-card" data-category="Home Improvement"><span class="product-media"><img src="assets/products/cvanu-privacy-window-film-white-frosted.webp" alt="CVANU white frosted privacy window film applied to a window" loading="lazy"></span><span class="product-card-top"><span class="category-badge">Home Improvement</span><span class="product-actions"><button class="product-share" type="button" data-url="https://amzn.to/4xQNDu7" aria-label="Copy share link for CVANU Privacy Window Film White Window Frosting Film Window Sticker Cling Frosted Vinyl Sheets for Front Door/Bathroom/Sidelight/Small Windows, 24&#x27;&#x27;x72&#x27;&#x27;">Share</button><a class="product-action" href="https://amzn.to/4xQNDu7" target="_blank" rel="noopener noreferrer sponsored">Open</a></span></span><span class="product-copy"><span class="product-name">CVANU Privacy Window Film White Window Frosting Film Window Sticker Cling Frosted Vinyl Sheets for Front Door/Bathroom/Sidelight/Small Windows, 24&#x27;&#x27;x72&#x27;&#x27;</span><span class="product-url">https://amzn.to/4xQNDu7</span></span></article>
+<article class="product-card" data-category="Automotive"><span class="product-media"><img src="assets/products/cvanu-reflective-l-board-learner-driver-decal.webp" alt="CVANU reflective L-board learner driver decal on a car rear window" loading="lazy"></span><span class="product-card-top"><span class="category-badge">Automotive</span><span class="product-actions"><button class="product-share" type="button" data-url="https://amzn.to/4g3qzCa" aria-label="Copy share link for CVANU 2pcs Reflective L-Board Learner Driver Vinyl Exterior Decal Red_(15cm X 15cm)">Share</button><a class="product-action" href="https://amzn.to/4g3qzCa" target="_blank" rel="noopener noreferrer sponsored">Open</a></span></span><span class="product-copy"><span class="product-name">CVANU 2pcs Reflective L-Board Learner Driver Vinyl Exterior Decal Red_(15cm X 15cm)</span><span class="product-url">https://amzn.to/4g3qzCa</span></span></article>
+<article class="product-card" data-category="Home Appliances"><span class="product-media"><img src="assets/products/usha-janome-dream-stitch-sewing-machine.webp" alt="Usha Janome Dream Stitch white and blue automatic zig-zag electric sewing machine" loading="lazy"></span><span class="product-card-top"><span class="category-badge">Home Appliances</span><span class="product-actions"><button class="product-share" type="button" data-url="https://amzn.to/4oRD9qx" aria-label="Copy share link for Usha Janome Dream Stitch Automatic Zig-Zag Electric Sewing Machine || 7 Built-In-Stitches || 14 Stitch Function (White &amp; Blue)">Share</button><a class="product-action" href="https://amzn.to/4oRD9qx" target="_blank" rel="noopener noreferrer sponsored">Open</a></span></span><span class="product-copy"><span class="product-name">Usha Janome Dream Stitch Automatic Zig-Zag Electric Sewing Machine || 7 Built-In-Stitches || 14 Stitch Function (White &amp; Blue)</span><span class="product-url">https://amzn.to/4oRD9qx</span></span></article>
     </section>
     <p class="disclosure">
       Some links may be commissionable. As an Amazon Associate I earn from qualifying purchases.
@@ -522,6 +666,31 @@
           localStorage.setItem("shopping-theme", nextTheme);
         } catch (error) {}
         applyTheme(nextTheme);
+      });
+    }());
+
+    (function () {
+      var gridButtons = Array.prototype.slice.call(document.querySelectorAll(".grid-size-button"));
+
+      function applyGridSize(size) {
+        document.documentElement.dataset.gridSize = size;
+        gridButtons.forEach(function (button) {
+          var isActive = button.dataset.gridSize === size;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+      }
+
+      applyGridSize(document.documentElement.dataset.gridSize || "3");
+
+      gridButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var size = button.dataset.gridSize;
+          try {
+            localStorage.setItem("shopping-grid-size", size);
+          } catch (error) {}
+          applyGridSize(size);
+        });
       });
     }());
 
